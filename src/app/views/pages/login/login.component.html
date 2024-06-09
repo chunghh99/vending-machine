@@ -1,0 +1,70 @@
+<div class="bg-light dark:bg-transparent min-vh-100 d-flex flex-row align-items-center">
+  <c-container breakpoint="md">
+    <form [formGroup]="loginForm">
+      <c-row class="justify-content-center">
+        <c-col lg="10" xl="8">
+          <c-card-group>
+            <c-card class="p-4">
+              <c-card-body>
+                <form cForm>
+                  <h1>Đăng nhập</h1>
+                  <div class="mb-3">
+                    <c-input-group>
+                  <span cInputGroupText>
+                    <svg cIcon name="cilUser"></svg>
+                  </span>
+                      <input class="form-control" formControlName="username" placeholder="Tên đăng nhập">
+                    </c-input-group>
+                    <div
+                      *ngIf="loginForm.controls['username'].invalid && (loginForm.controls['username'].dirty || loginForm.controls['username'].touched)">
+                      <div *ngIf="loginForm.controls['username'].errors.required" class="error-message">
+                        Tên đăng nhập không được để trống.
+                      </div>
+                    </div>
+                  </div>
+                  <div class="mb-4">
+                    <c-input-group>
+                  <span cInputGroupText>
+                    <svg cIcon name="cilLockLocked"></svg>
+                  </span>
+                      <input
+                        class="form-control"
+                        placeholder="Mật khẩu"
+                        type="password"
+                        formControlName="password"
+                      />
+                    </c-input-group>
+                    <div
+                      *ngIf="validField('password')">
+                      <div *ngIf="loginForm.controls.password.errors?.required" class="error-message">
+                        Mật khẩu không được để trống.
+                      </div>
+                    </div>
+                  </div>
+                  <c-row>
+                    <c-col xs="6">
+                      <button cButton class="px-4" color="primary" (click)="login()">
+                        Đăng nhập
+                      </button>
+                    </c-col>
+                    <c-col class="text-right" xs="6">
+                    </c-col>
+                  </c-row>
+                </form>
+              </c-card-body>
+            </c-card>
+            <c-card [ngStyle]="{'minWidth.%': 44}" class="text-white bg-primary py-5">
+              <c-card-body class="text-center">
+                <div>
+                  <h2>Hệ thống quản lý máy bán hàng tự động</h2>
+
+
+                </div>
+              </c-card-body>
+            </c-card>
+          </c-card-group>
+        </c-col>
+      </c-row>
+    </form>
+  </c-container>
+</div>

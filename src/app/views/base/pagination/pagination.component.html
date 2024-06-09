@@ -1,0 +1,48 @@
+<nav aria-label="Page navigation">
+  <div class="row">
+    <div class="col-6">
+    </div>
+    <div class="col-6">
+      <div class="row">
+        <div class="col-10">
+          <ul class="pagination justify-content-end">
+            <li class="page-item" [class.disabled]="currentPage === 1">
+              <a class="page-link" href="#" (click)="setCurrentPage(1)" aria-label="Previous">
+                <span aria-hidden="true">&laquo;</span>
+              </a>
+            </li>
+            <li class="page-item" *ngIf="currentPage > 3">
+              <span class="page-link">...</span>
+            </li>
+            <li class="page-item" *ngFor="let page of visiblePages">
+              <a class="page-link" href="#" (click)="setCurrentPage(page)"
+                 [class.active]="currentPage === page">{{ page }}</a>
+            </li>
+            <li class="page-item" *ngIf="currentPage < totalPages - 2">
+              <span class="page-link">...</span>
+            </li>
+            <li class="page-item" [class.disabled]="currentPage === totalPages">
+              <a class="page-link" href="#" (click)="setCurrentPage(totalPages)" aria-label="Next">
+                <span aria-hidden="true">&raquo;</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+        <div class="col-2">
+          <div class="dropdown" style="float: right">
+            <button class="btn btn-secondary dropdown-toggle" type="button" id="itemsPerPageDropdown"
+                    data-bs-toggle="dropdown" aria-expanded="false">
+              {{ itemsPerPage }}
+            </button>
+            <ul class="dropdown-menu" aria-labelledby="itemsPerPageDropdown">
+              <li *ngFor="let option of itemsPerPageOptions">
+                <a class="dropdown-item" href="#" (click)="changeItemsPerPage(option)">{{ option }}</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</nav>
