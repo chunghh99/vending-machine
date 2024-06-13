@@ -76,5 +76,9 @@ export class DefaultHeaderComponent extends HeaderComponent {
     this.router.navigate(['/login']);
   }
 
+  changePassword() {
+console.log('change password')
+  }
+
 
 }

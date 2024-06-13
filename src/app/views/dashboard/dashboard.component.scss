@@ -6,44 +6,7 @@
   }
 }
 
-/* Thay đổi màu nền cho table */
-.table {
-  background-color: #f8f9fa;
-}
 
-/* Thay đổi màu chữ cho table header */
-.table thead th {
-  color: #007bff;
-}
 
-/* Thay đổi màu chữ cho table body */
-.table tbody td {
-  color: #6c757d;
-}
-
-/* Tạo hover effect cho hàng trong table */
-.table tbody tr:hover {
-  background-color: #e9ecef;
-}
-.table {
-  min-width: 800px!important;
-}
-/* Thiết lập border cho table và cho phép các nội dung xuống dòng */
-.table {
-  border: 1px solid #dee2e6; /* Border cho toàn bộ table */
-}
-
-/* Border cho table header */
-.table thead th {
-  border: 1px solid #dee2e6;
-  text-align: center;
-}
-
-/* Border cho table body */
-.table tbody td {
-  border: 1px solid #dee2e6;
-  white-space: normal; /* Cho phép các nội dung xuống dòng */
-  word-break: break-word;
-}
 
 

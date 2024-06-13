@@ -1,20 +1,30 @@
 <h1>Chào mừng đến với hệ thống quản lý máy bán hàng tự động</h1>
-<div class="table-responsive" style="width: 100%!important;">
+<div class="table-responsive radius-table" style="width: 100%!important;">
   <table class="table table-striped table-hover">
     <thead>
     <tr>
-      <th width="5%">#</th>
+      <th>#</th>
       <th>First Name</th>
       <th>Last Name</th>
+      <th>Email</th>
+      <th>Email</th>
+      <th>Email</th>
+      <th>Email</th>
+      <th>Email</th>
       <th>Email</th>
     </tr>
     </thead>
     <tbody>
     <tr *ngFor="let user of users">
-      <td width="10%">{{ user.id }}</td>
-      <td width="30%">{{ user.firstName }}</td>
-      <td width="30%">{{ user.lastName }}</td>
-      <td width="30%">{{ user.email }}</td>
+      <td width="5%" class="text-center">{{ user.id }}</td>
+      <td width="30%" class="min-width-cl">{{ user.firstName }}</td>
+      <td width="30%" class="min-width-cl">{{ user.lastName }}</td>
+      <td width="30%" class="min-width-cl">{{ user.email }}</td>
+      <td width="30%" class="min-width-cl">{{ user.email }}</td>
+      <td width="30%" class="min-width-cl">{{ user.email }}</td>
+      <td width="30%" class="min-width-cl">{{ user.email }}</td>
+      <td width="30%" class="min-width-cl">{{ user.email }}</td>
+      <td width="30%" class="min-width-cl">{{ user.email }}</td>
     </tr>
     </tbody>
   </table>

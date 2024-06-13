@@ -26,15 +26,400 @@
 
 
 @keyframes shake {
-  0% { transform: translateX(0); }
-  20% { transform: translateX(-10px); }
-  40% { transform: translateX(10px); }
-  60% { transform: translateX(-10px); }
-  80% { transform: translateX(10px); }
-  100% { transform: translateX(0); }
+  0% {
+    transform: translateX(0);
+  }
+  20% {
+    transform: translateX(-10px);
+  }
+  40% {
+    transform: translateX(10px);
+  }
+  60% {
+    transform: translateX(-10px);
+  }
+  80% {
+    transform: translateX(10px);
+  }
+  100% {
+    transform: translateX(0);
+  }
 }
 
 .error-message {
-  color: red;
+  color: #ee0032;
   animation: shake 0.5s;
 }
+
+.form-control:focus {
+  border-color: #ee0032 !important;
+  box-shadow: 0 0 5px red;
+}
+
+.ng-native-scrollbar-hider .ng-scroll-viewport {
+  background: red;
+}
+
+a.nav-link {
+  font-weight: 400 !important;
+}
+
+a.nav-link:hover {
+  background-color: #fef2f5 !important; /* Đổi màu nền thành đỏ */
+  color: red !important; /* Đổi màu chữ thành trắng */
+  border-radius: 16px !important;
+
+  .nav-icon {
+    color: red !important;
+  }
+}
+
+a.nav-link.active {
+  background-color: #fef2f5 !important; /* Đổi màu nền thành đỏ */
+  color: red !important; /* Đổi màu chữ thành trắng */
+  border-radius: 16px !important;
+
+  .nav-icon {
+    color: red !important;
+  }
+}
+
+
+/* Thay đổi màu chữ cho table body */
+.table tbody td {
+  color: #6c757d;
+}
+
+/* Tạo hover effect cho hàng trong table */
+.table tbody tr:hover {
+  background-color: #e9ecef;
+}
+
+/* Thiết lập border cho table và cho phép các nội dung xuống dòng */
+.table {
+  border: 1px solid #dee2e6; /* Border cho toàn bộ table */
+}
+
+/* Border cho table header */
+.table thead th {
+  border: 1px solid #dee2e6;
+  text-align: center;
+  white-space: normal;
+  word-break: break-word;
+}
+
+/* Border cho table body */
+
+.table tbody td {
+  border: 1px solid #dee2e6;
+  white-space: normal; /* Cho phép các nội dung xuống dòng */
+  word-break: break-word;
+  max-width: 20% !important;
+}
+
+
+.table-box {
+  padding: 20px 0px;
+}
+
+.table-center {
+  display: inline-block;
+  background: #FAFCFE
+}
+
+.table-header {
+  display: block;
+  border-bottom: 1px solid #eeeeee;
+  /* margin: 0px -20px; */
+}
+
+.table thead {
+  margin: 0px -25px;
+  text-align: left;
+  border-radius: 5px !important;
+  border-bottom: 1px solid #eeeeee;
+}
+
+.table tbody tr:hover {
+  background: #deeeef !important;
+}
+
+.table-2 tbody tr:hover {
+  background: #f5fdff !important;
+}
+
+.table thead tr th {
+  color: black;
+  font-weight: bold;
+  text-align: center;
+  white-space: nowrap;
+  //background: #CCE5F8;
+  border-left: 1px solid white;
+  box-shadow: 0 2px 15px rgba(0, 0, 0, .05), 0 -1px 0 rgba(0, 0, 0, .01);
+}
+
+.table tbody tr td {
+  padding: 5px 5px 0 5px;
+  /* text-align: center; */
+  white-space: nowrap;
+  line-height: 28px;
+  font-size: 12px;
+  border-left: 1px solid #e0e0e0;
+  border-right: 1px solid #e0e0e0;
+}
+
+.table tbody tr td span {
+  display: inline-block;
+  line-height: 32px;
+}
+
+.table tbody tr td span img {
+  display: block;
+  width: 32px;
+  height: auto;
+  margin: 5px auto;
+  text-align: center;
+}
+
+.table-right tbody tr td {
+  padding: 14px 0;
+  height: 60px;
+  float: left;
+  width: 100%;
+  border: 0;
+}
+
+.table > tbody > tr:nth-child(odd) {
+  background: rgba(0, 0, 0, .025);
+}
+
+.table-footer {
+  padding: 0 20px;
+}
+
+.table-fixed-left {
+  width: 20%;
+  position: relative
+}
+
+.table-center {
+  width: 65%;
+}
+
+.table-fixed-right {
+  width: 15%;
+}
+
+.table-2 thead tr th.th_chekbox {
+  width: 10px;
+}
+
+@media (max-width: 1920px) {
+  .table-fixed-left {
+    width: 20%;
+    position: relative
+  }
+
+  .table-center {
+    width: 70%;
+  }
+
+  .table-fixed-right {
+    width: 10%;
+  }
+}
+
+@media (max-width: 1620px) {
+  .table-fixed-left {
+    width: 20%;
+    position: relative
+  }
+
+  .table-center {
+    width: 65%;
+  }
+
+  .table-fixed-right {
+    width: 15%;
+  }
+}
+
+@media (max-width: 990px) {
+  .button-label {
+    display: none;
+  }
+
+  .logo-src img {
+    width: 100%;
+  }
+
+  .table tbody tr td {
+    padding: 15px !important;
+  }
+
+  .nav-tabs > li {
+    font-size: 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  .title-page {
+    display: none;
+  }
+
+  .top-left-part {
+    width: 140px;
+  }
+
+  .input-group span {
+    margin: 20px;
+  }
+
+  .table-fixed-left {
+    width: 50%;
+  }
+
+  .table-center {
+    width: 25%;
+  }
+
+  .table-fixed-right {
+    width: 25%;
+  }
+
+  /* .ic-thaotac li a img {
+      width: 90%;
+  } */
+  .user-info {
+    display: none;
+  }
+
+  .hide-menu {
+    display: none;
+  }
+}
+
+
+.table-responsive {
+  overflow-y: hidden;
+}
+
+.table-box {
+  display: table;
+  width: 100%;
+}
+
+.table {
+  margin-bottom: 0;
+  /* border-bottom:1px solid #d3d3d3 */
+}
+
+.table-hover > tbody > tr:hover, .table-striped > tbody > tr:nth-of-type(odd), .table > tbody > tr.active > td, .table > tbody > tr.active > th, .table > tbody > tr > td.active, .table > tbody > tr > th.active, .table > tfoot > tr.active > td, .table > tfoot > tr.active > th, .table > tfoot > tr > td.active, .table > tfoot > tr > th.active, .table > thead > tr.active > td, .table > thead > tr.active > th, .table > thead > tr > td.active, .table > thead > tr > th.active {
+  background-color: white !important;
+}
+
+.table-bordered, .table > tbody > tr > td, .table > tbody > tr > th, .table > tfoot > tr > td, .table > tfoot > tr > th, .table > thead > tr > td, .table > thead > tr > th {
+  border-top: 1px solid #e4e7ea;
+}
+
+.table > tbody > tr > td, .table > tbody > tr > th, .table > tfoot > tr > td, .table > tfoot > tr > th, .table > thead > tr > td, .table > thead > tr > th {
+  /* padding: 15px 8px; */
+  padding: 8px;
+}
+
+.table-bordered > tbody > tr > td, .table-bordered > tbody > tr > th, .table-bordered > tfoot > tr > td, .table-bordered > tfoot > tr > th, .table-bordered > thead > tr > td, .table-bordered > thead > tr > th {
+  border: 1px solid #e4e7ea;
+}
+
+.table > thead > tr > th {
+  vertical-align: bottom;
+  border-bottom: 1px solid #e4e7ea;
+}
+
+tbody {
+  color: #000000;
+}
+
+th {
+  color: #666;
+  font-weight: 500;
+}
+
+.table-bordered {
+  border: 1px solid #e4e7ea;
+}
+
+table.focus-on tbody tr.focused td, table.focus-on tbody tr.focused th {
+  background-color: #2cabe3;
+  color: #fff;
+}
+
+.table-rep-plugin .table-responsive {
+  border: none !important;
+}
+
+.table-rep-plugin tbody th {
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.table tbody tr.advance-table-row {
+  border: 2px solid rgba(120, 130, 140, .13);
+  white-space: nowrap;
+}
+
+.table tbody tr.advance-table-row .checkbox {
+  margin: 0;
+}
+
+.table tbody tr.advance-table-row.active {
+  border: 2px solid #2cabe3;
+}
+
+.table tbody tr.advance-table-row td {
+  vertical-align: middle !important;
+  border: 0 !important;
+  font-size: 16px;
+  background: #fff;
+}
+
+.table.dataTable, table.dataTable {
+  width: 99.8% !important;
+}
+
+.pro-rd .table > tbody > tr > td:first-child {
+  font-weight: 500;
+}
+
+.pro-rd .table > tbody > tr > td, .pro-rd .table > tbody > tr > th {
+  border: none;
+  padding: 8px 8px 8px 0;
+  font-size: 12px;
+}
+
+
+.table tbody td {
+  border: 1px solid #dee2e6;
+  white-space: normal !important; /* Cho phép các nội dung xuống dòng */
+  //min-width: 300px;
+}
+
+.min-width-cl {
+  min-width: 150px;
+}
+
+.cursor-pointer {
+  cursor: pointer;
+}
+
+
+
+.dropdown-menu .dropdown-item:active,
+.dropdown-menu .dropdown-item:focus,
+.dropdown-menu .dropdown-item:hover{
+  color: #fff!important; /* Màu chữ mới */
+  background-color: #ee0032!important; /* Màu nền mới */
+}
+
+
+

@@ -3,8 +3,22 @@
     <form [formGroup]="loginForm">
       <c-row class="justify-content-center">
         <c-col lg="10" xl="8">
+          <div class="svg-background">
+            <img height="32" width="" src="assets/images/vt-doanh-nghiep.svg"/>
+          </div>
           <c-card-group>
-            <c-card class="p-4">
+            <c-card  style="margin-right: 10px" [ngStyle]="{'minWidth.%': 44}" class="text-white py-5 background-red border-form">
+              <c-card-body class="text-center">
+
+
+                <div>
+                  <h2>Hệ thống quản lý máy bán hàng tự động</h2>
+                </div>
+
+              </c-card-body>
+            </c-card>
+
+            <c-card class="p-4 border-form" style="margin-right: 10px">
               <c-card-body>
                 <form cForm>
                   <h1>Đăng nhập</h1>
@@ -42,26 +56,21 @@
                     </div>
                   </div>
                   <c-row>
-                    <c-col xs="6">
-                      <button cButton class="px-4" color="primary" (click)="login()">
+                    <c-col xs="12">
+                      <button cButton class="px-4 btn-login"  (click)="login()">
                         Đăng nhập
                       </button>
                     </c-col>
-                    <c-col class="text-right" xs="6">
-                    </c-col>
+<!--                    <c-col class="text-right" xs="6">-->
+<!--                    </c-col>-->
                   </c-row>
                 </form>
               </c-card-body>
             </c-card>
-            <c-card [ngStyle]="{'minWidth.%': 44}" class="text-white bg-primary py-5">
-              <c-card-body class="text-center">
-                <div>
-                  <h2>Hệ thống quản lý máy bán hàng tự động</h2>
 
 
-                </div>
-              </c-card-body>
-            </c-card>
+
+
           </c-card-group>
         </c-col>
       </c-row>

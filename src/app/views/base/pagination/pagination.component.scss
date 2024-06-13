@@ -1,1 +1,49 @@
 
+select.form-select {
+  height: 2.5rem; /* Thay đổi chiều cao cho select box */
+  font-size: 12px;
+}
+
+
+.pagination > li > a {
+  background-color: white;
+  color: #5A4181;
+}
+
+.pagination > li > a:focus,
+.pagination > li > a:hover,
+.pagination > li > span:focus,
+.pagination > li > span:hover {
+  color: #5a5a5a;
+  background-color: #eee;
+  border-color: #ddd;
+}
+
+.page-link:active {
+  border-color: #ee0032 !important;
+  box-shadow: 0 0 5px red;
+}
+
+a.page-link .active {
+  border: 1px solid #ee0032 !important;
+}
+
+.pagination > li > a.active {
+  background-color: #ee0032 !important;
+  color: white !important;
+  border: 1px solid #ddd !important;
+}
+
+
+.pagination > li > a:focus {
+  border-color: #ee0032 !important;
+  box-shadow: 0 0 5px #ee0032;
+}
+
+.pagination > li > a:active {
+  background-color: #ee0032 !important;
+  color: white;
+}
+
+
+

@@ -45,9 +45,9 @@ export class PaginationComponent implements OnInit {
     this.updateVisiblePages();
   }
 
-  changeItemsPerPage(option: number): void {
+  changeItemsPerPage($event: any): void {
     this.setCurrentPage(1);
-    this.itemsPerPage = option;
+    this.itemsPerPage = $event.target.value;
     this.calculateTotalPages();
   }
 
