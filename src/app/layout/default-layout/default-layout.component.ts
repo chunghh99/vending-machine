@@ -1,8 +1,8 @@
 import {Component, OnInit} from '@angular/core';
-import { RouterLink, RouterOutlet } from '@angular/router';
-import { NgScrollbar } from 'ngx-scrollbar';
+import {RouterLink, RouterOutlet} from '@angular/router';
+import {NgScrollbar} from 'ngx-scrollbar';
 
-import { IconDirective } from '@coreui/icons-angular';
+import {IconDirective} from '@coreui/icons-angular';
 import {
   ContainerComponent,
   ShadowOnScrollDirective,
@@ -15,9 +15,9 @@ import {
   SidebarTogglerDirective
 } from '@coreui/angular';
 
-import { DefaultFooterComponent, DefaultHeaderComponent } from './';
-import { navItems } from './_nav';
+import {DefaultFooterComponent, DefaultHeaderComponent} from './';
 import {SpinnerComponent} from "../../views/base/spinner/spinner.component";
+import {Constants} from "../../constants";
 
 function isOverflown(element: HTMLElement) {
   return (
@@ -54,10 +54,9 @@ export class DefaultLayoutComponent implements OnInit{
   public navItems: any;
 
   ngOnInit() {
-    let menu = localStorage.getItem('menu');
+    let menu = localStorage.getItem(Constants.MENU);
     if(menu){
       this.navItems = JSON.parse(menu);
-      console.log(menu)
     }
 
   }

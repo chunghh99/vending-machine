@@ -17,6 +17,8 @@ import {
 } from '@coreui/angular';
 import {FormBuilder, FormGroup, ReactiveFormsModule, Validators} from "@angular/forms";
 import {Router} from "@angular/router";
+import {Constants} from "../../../constants";
+import {ToastrService} from "ngx-toastr";
 
 @Component({
   selector: 'app-login',
@@ -105,15 +107,17 @@ export class LoginComponent implements OnInit {
 
 
   constructor(private formBuilder: FormBuilder,
-              private router: Router) {
+              private router: Router,
+              private toastr: ToastrService) {
 
   }
 
   ngOnInit() {
     this.loginForm = this.formBuilder.group({
       username: ['', [Validators.required]],
-      password: ['', [Validators.required]]
+      password: ['', [Validators.required, Validators.minLength(6)]]
     });
+    localStorage.clear();
   }
 
   markFormGroupTouched(formGroup: FormGroup) {
@@ -140,13 +144,16 @@ export class LoginComponent implements OnInit {
       console.log(this.loginForm);
       return;
     }
-
-    localStorage.setItem('token', 'tokenxxx')
+    localStorage.setItem(Constants.TOKEN, 'tokenxxx')
     this.router.navigate(['/']);
 
-    localStorage.setItem('menu', JSON.stringify(this.menu));
-
-
+    localStorage.setItem(Constants.MENU, JSON.stringify(this.menu));
+    this.showSuccess();
   }
+
+  showSuccess() {
+    this.toastr.success('Đăng nhập thành công');
+  }
+
 
 }

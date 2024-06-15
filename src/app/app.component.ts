@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnDestroy, OnInit} from '@angular/core';
 import { NavigationEnd, Router, RouterOutlet } from '@angular/router';
 import { Title } from '@angular/platform-browser';
 
@@ -7,7 +7,7 @@ import { iconSubset } from './icons/icon-subset';
 
 @Component({
   selector: 'app-root',
-  template: '<router-outlet />',
+  template: '<router-outlet></router-outlet>',
   standalone: true,
   imports: [RouterOutlet]
 })

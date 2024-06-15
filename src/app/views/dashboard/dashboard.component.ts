@@ -21,8 +21,6 @@ import {
 import {ChartjsComponent} from '@coreui/angular-chartjs';
 import {IconDirective} from '@coreui/icons-angular';
 
-import {WidgetsBrandComponent} from '../widgets/widgets-brand/widgets-brand.component';
-import {WidgetsDropdownComponent} from '../widgets/widgets-dropdown/widgets-dropdown.component';
 import {SpinnerService} from "../../services/spinner.service";
 import {PaginationComponent} from "../base/pagination/pagination.component";
 
@@ -44,7 +42,7 @@ interface IUser {
   templateUrl: 'dashboard.component.html',
   styleUrls: ['dashboard.component.scss'],
   standalone: true,
-  imports: [WidgetsDropdownComponent, TextColorDirective, CardComponent, CardBodyComponent, RowComponent, ColComponent, ButtonDirective, IconDirective, ReactiveFormsModule, ButtonGroupComponent, FormCheckLabelDirective, ChartjsComponent, NgStyle, CardFooterComponent, GutterDirective, ProgressBarDirective, ProgressComponent, WidgetsBrandComponent, CardHeaderComponent, TableDirective, AvatarComponent, NgForOf, PaginationComponent]
+  imports: [TextColorDirective, CardComponent, CardBodyComponent, RowComponent, ColComponent, ButtonDirective, IconDirective, ReactiveFormsModule, ButtonGroupComponent, FormCheckLabelDirective, ChartjsComponent, NgStyle, CardFooterComponent, GutterDirective, ProgressBarDirective, ProgressComponent, CardHeaderComponent, TableDirective, AvatarComponent, NgForOf, PaginationComponent]
 })
 export class DashboardComponent implements OnInit {
 

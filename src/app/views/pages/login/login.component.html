@@ -53,6 +53,9 @@
                       <div *ngIf="loginForm.controls.password.errors?.required" class="error-message">
                         Mật khẩu không được để trống.
                       </div>
+                      <div *ngIf="loginForm.controls.password.errors?.minlength" class="error-message">
+                        Mật khẩu phải > 6 ký tự.
+                      </div>
                     </div>
                   </div>
                   <c-row>
@@ -61,8 +64,6 @@
                         Đăng nhập
                       </button>
                     </c-col>
-<!--                    <c-col class="text-right" xs="6">-->
-<!--                    </c-col>-->
                   </c-row>
                 </form>
               </c-card-body>
