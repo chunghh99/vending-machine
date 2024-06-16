@@ -32,7 +32,7 @@ export const routes: Routes = [
       },
       {
         path: 'operate/product',
-        loadChildren: () => import('./views/theme/routes').then((m) => m.routes),
+        loadChildren: () => import('./views/vending-machine/operate/product-management/routes').then((m) => m.routes),
         canActivate: [ActivateRouter]
       },
       {
@@ -41,8 +41,8 @@ export const routes: Routes = [
         canActivate: [ActivateRouter]
       },
       {
-        path: 'admin/user-management',
-        loadChildren: () => import('./views/theme/routes').then((m) => m.routes),
+        path: 'admin/create-user',
+        loadChildren: () => import('./views/vending-machine/admin/create-user/routes').then((m) => m.routes),
         canActivate: [ActivateRouter]
       },
       {
@@ -51,8 +51,8 @@ export const routes: Routes = [
         canActivate: [ActivateRouter]
       },
       {
-        path: 'admin/password-management',
-        loadChildren: () => import('./views/theme/routes').then((m) => m.routes),
+        path: 'admin/reset-password',
+        loadChildren: () => import('./views/vending-machine/admin/reset-password/routes').then((m) => m.routes),
         canActivate: [ActivateRouter]
       },
       {

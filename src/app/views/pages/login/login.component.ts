@@ -79,7 +79,7 @@ export class LoginComponent implements OnInit {
       children: [
         {
           name: 'Khai báo user',
-          url: 'admin/user-management',
+          url: 'admin/create-user',
           icon: 'nav-icon-bullet'
         },
         {
@@ -89,7 +89,7 @@ export class LoginComponent implements OnInit {
         },
         {
           name: 'Cấp lại mật khẩu',
-          url: 'admin/password-management',
+          url: 'admin/reset-password',
           icon: 'nav-icon-bullet'
         },
         {

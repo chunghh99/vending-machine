@@ -38,6 +38,7 @@
     "@coreui/utils": "^2.0.2",
     "bootstrap": "^5.3.3",
     "chart.js": "^4.4.3",
+    "choices.js": "^10.2.0",
     "font-awesome": "^4.7.0",
     "lodash-es": "^4.17.21",
     "ngx-scrollbar": "^13.0.3",

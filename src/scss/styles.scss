@@ -430,5 +430,102 @@ table.focus-on tbody tr.focused td, table.focus-on tbody tr.focused th {
   background-color: #ee0032!important; /* Màu nền mới */
 }
 
+.width-100 {
+  width: 100%;
+}
+
+//#dropdown
+.dropdown .dropdown-toggle {
+  width: 100%;
+}
+
+.dropdown-menu {
+  width: 100%;
+  /* hoặc */
+  max-width: 100%;
+}
+
+.dropdown-toggle {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: white;
+  color: black;
+}
+
+.dropdown-toggle:hover,
+.dropdown-toggle:focus,
+.dropdown-toggle:active {
+  background-color: #ee0032;
+  color: white;
+  border: 1px solid #ee0032;
+}
+
+.dropdown-toggle .fa {
+  margin-left: 8px; /* Điều chỉnh khoảng cách giữa chữ và icon */
+}
+
+
+.dropdown-toggle::after {
+  display: inline-block;
+  font-weight: 900; /* Đảm bảo sử dụng font-weight chính xác */
+  margin-left: 0.75rem; /* Điều chỉnh khoảng cách giữa chữ và icon */
+}
+
+.custom-dropdown .btn {
+  background-color: white;
+  color: black;
+  border: 1px solid #dddddd;
+}
+
+.custom-dropdown .btn:hover {
+  background-color: #ee0032;
+  color: white;
+  border: 1px solid #ee0032;
+}
+
+.custom-dropdown .dropdown-menu {
+  border: 1px solid #fef2f5;
+}
+
+.justify-content-center {
+  justify-content: center;
+}
+
+//btn custom
+.btn-primary-custom {
+  background-color: #ee0033;
+  color: white;
+  font-weight: 400;
+}
+
+.btn-primary-custom:active,
+.btn-primary-custom:hover,
+.btn-primary-custom:focus,
+.btn-primary-custom:focus-visible,
+.btn-primary-custom:disabled {
+  background-color: #ff0032 !important;
+  color: white !important;
+  font-weight: 400 !important;
+}
+
+.required {
+  color: red;
+}
+
+//#custom select
+.custom-select:focus,
+.custom-select:active {
+  box-shadow: 0 0 5px #ee0032 !important;
+  border: 1px solid red !important;
+}
+
+.custom-option:hover {
+  background-color: red!important;
+}
+
+.is-invalid {
+  border: 1px solid red !important;
+}
 
 
