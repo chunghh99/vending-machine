@@ -1,14 +1,15 @@
 <nav aria-label="Page navigation" class="mt-3 pagination-custom">
   <div class="row align-items-center">
     <div class="col-6">
-      <h6 >Hiển thị trang {{currentPage}}/{{totalPages}}</h6>
+      <h6>Hiển thị trang {{ currentPage }}/{{ totalPages }}</h6>
     </div>
     <div class="col-6">
       <div class="row">
         <div class="col-10">
           <ul class="pagination justify-content-end">
             <li class="page-item" [class.disabled]="currentPage === 1">
-              <a class="page-link cursor-pointer"  (click)="setCurrentPage(1)" aria-label="Previous" aria-disabled="true">
+              <a class="page-link cursor-pointer" (click)="setCurrentPage(1)" aria-label="Previous"
+                 aria-disabled="true">
                 <span aria-hidden="true">&laquo;</span>
               </a>
             </li>
@@ -24,7 +25,8 @@
               <span class="page-link">...</span>
             </li>
             <li class="page-item" [class.disabled]="currentPage === totalPages">
-              <a class="page-link cursor-pointer" (click)="setCurrentPage(totalPages)" aria-label="Next" aria-disabled="true">
+              <a class="page-link cursor-pointer" (click)="setCurrentPage(totalPages)" aria-label="Next"
+                 aria-disabled="true">
                 <span aria-hidden="true">&raquo;</span>
               </a>
             </li>
@@ -32,8 +34,11 @@
         </div>
         <div class="col-2">
           <div>
-            <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example" (change)="changeItemsPerPage($event)">
-              <option value="{{option}}" *ngFor="let option of itemsPerPageOptions">{{option}}</option>
+            <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example cursor-pointer"
+                    (change)="changeItemsPerPage($event)">
+              <option value="{{option}}" *ngFor="let option of itemsPerPageOptions"
+                      class="cursor-pointer">{{ option }}
+              </option>
             </select>
           </div>
         </div>

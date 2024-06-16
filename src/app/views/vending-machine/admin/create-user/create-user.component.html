@@ -1,0 +1,88 @@
+<form [formGroup]="userForm">
+  <h4>Đăng ký thông tin nhân viên</h4>
+
+  <div class="row mt-5">
+    <div class="col-md-2 col-sm-2 col-xs-6 ">
+      <label class="form-label col-form-label"> Tên nhân viên<span class="required">*</span></label>
+    </div>
+    <div class="col-md-4 col-sm-4 col-xs-6 ">
+      <input class="form-control" formControlName="fullName" maxlength="50" id="fullName"
+             [class.is-invalid]="validField('fullName')">
+      <div *ngIf="validField('fullName')">
+        <div *ngIf="showError('fullName', 'required')" class="error-message">
+          Tên nhân viên không được để trống.
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-2 col-sm-2 col-xs-6 ">
+      <label class="form-label col-form-label"> Ngày sinh<span class="required">*</span></label>
+    </div>
+    <div class="col-md-4 col-sm-4 col-xs-6 ">
+      <input class="form-control custom-date-input" formControlName="birthDay" type="date"
+             [class.is-invalid]="validField('birthDay')">
+      <div *ngIf="validField('birthDay')">
+        <div *ngIf="showError('birthDay', 'required')" class="error-message">
+          Ngày sinh không được để trống.
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="row mt-3">
+    <div class="col-md-2 col-sm-2 col-xs-6">
+      <label class="form-label col-form-label"> Số điện thoại<span class="required">*</span></label>
+    </div>
+    <div class="col-md-4 col-sm-4 col-xs-6">
+      <input class="form-control" formControlName="phoneNumber" maxlength="15"
+             [class.is-invalid]="validField('phoneNumber')">
+      <div *ngIf="validField('phoneNumber')">
+        <div *ngIf="showError('phoneNumber', 'required')" class="error-message">
+          Số điện thoại không được để trống.
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-2 col-sm-2 col-xs-6">
+      <label class="form-label col-form-label"> Mã nhân viên<span class="required">*</span></label>
+    </div>
+    <div class="col-md-4 col-sm-4 col-xs-6">
+      <input class="form-control" formControlName="userName" maxlength="100"
+             [class.is-invalid]="validField('userName')">
+      <div *ngIf="validField('userName')">
+        <div *ngIf="showError('userName', 'required')" class="error-message">
+          Mã nhân viên không được để trống.
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row mt-3">
+    <div class="col-md-2 col-sm-2 col-xs-6">
+      <label class="form-label col-form-label"> Cây bán hàng quản lý<span class="required">*</span></label>
+    </div>
+    <div class="col-md-4 col-sm-4 col-xs-6">
+      <select class="form-select custom-select" aria-label="" formControlName="vendingMachine"
+              [class.is-invalid]="validField('vendingMachine')">
+        <option value="0" class="custom-option">Cây bán hàng keangNam</option>
+        <option value="1" class="custom-option">Cây bán hàng 1</option>
+        <option value="2" class="custom-option">Cây bán hàng 2</option>
+        <option value="3" class="custom-option">Cây bán hàng 3</option>
+      </select>
+
+      <div *ngIf="validField('vendingMachine')">
+        <div *ngIf="showError('vendingMachine', 'required')" class="error-message">
+          Cây bán hàng quản lý không được để trống.
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row mt-3">
+    <div class="col-12 text-center">
+      <button type="button" class="btn btn-primary-custom" (click)="onCreateUser()"><i class="fa fa-plus"></i> Thêm mới
+      </button>
+    </div>
+  </div>
+</form>

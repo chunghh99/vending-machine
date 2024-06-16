@@ -1,0 +1,66 @@
+<h4>Cập nhật hàng hóa</h4>
+<div class="row mt-3">
+  <div class="col-md-2 col-sm-2 col-xs-6">
+    <label class="form-label"> Cây bán hàng</label>
+  </div>
+  <div class="col-md-2 col-sm-2 col-xs-6">
+      <select class="form-select custom-select" aria-label="">
+        <option value="0" class="custom-option">Chọn cây bán hàng</option>
+        <option value="1" class="custom-option">Cây 1</option>
+        <option value="2" class="custom-option">Cây 2</option>
+        <option value="3" class="custom-option">Cây 3</option>
+      </select>
+  </div>
+</div>
+
+<div class="row mt-3">
+  <div class="col-md-4 col-xs-12">
+    <label class="form-label col-form-label">Sản phẩm</label>
+  </div>
+  <div class="col-md-4 col-xs-12">
+    <label class="form-label col-form-label">Giá cả(đ)<span class="required">*</span></label>
+  </div>
+  <div class="col-md-4 col-xs-12">
+    <label class="form-label col-form-label">Số lượng<span class="required">*</span></label>
+  </div>
+</div>
+<form [formGroup]="productForm">
+  <div formArrayName="productList">
+    <div class="row mt-3" *ngFor="let product of productForm.get('productList')['controls']; let i = index"
+         [formGroupName]="i">
+      <div class="col-md-4 col-xs-12 mt-1">
+        <input class="form-control" hidden="true">
+        <input class="form-control" formControlName="productName" id="productName" readonly>
+      </div>
+      <div class="col-md-4 col-xs-12  mt-1">
+        <input class="form-control" formControlName="price" id="price" appNumericCurrency maxlength="7"
+               [class.is-invalid]="validField(i,'price')">
+        <div *ngIf="validField(i, 'price')">
+          <div *ngIf="showError(i, 'price', 'required')" class="error-message">
+            Giá cả không được để trống.
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4 col-xs-12  mt-1">
+        <input class="form-control" formControlName="quantity" id="quantity" appNumericCurrency maxlength="7"
+               [class.is-invalid]="validField(i,'quantity')">
+        <div *ngIf="validField(i, 'quantity')">
+          <div *ngIf="showError(i, 'quantity', 'required')" class="error-message">
+            Số lượng không được để trống.
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row mt-3">
+    <div class="col-12 text-center">
+      <button type="button" class="btn btn-primary-custom" (click)="onUpdateProduct()"><i class="fa fa-save"></i> Cập nhật</button>
+    </div>
+  </div>
+
+  <div>
+  </div>
+
+
+</form>

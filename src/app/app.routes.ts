@@ -1,6 +1,6 @@
 import {Routes} from '@angular/router';
 import {DefaultLayoutComponent} from './layout';
-import {RedirectRouter} from "./redirect-router";
+import {ActivateRouter} from "./activate-router";
 
 export const routes: Routes = [
   {
@@ -17,53 +17,53 @@ export const routes: Routes = [
     children: [
       {
         path: '',
-        canActivate: [RedirectRouter],
-        loadChildren: () => import('./views/dashboard/routes').then((m) => m.routes)
+        loadChildren: () => import('./views/dashboard/routes').then((m) => m.routes),
+        canActivate: [ActivateRouter]
       },
       {
         path: 'report-transaction/revenue',
-        canActivate: [RedirectRouter],
-        loadChildren: () => import('./views/theme/routes').then((m) => m.routes)
+        loadChildren: () => import('./views/theme/routes').then((m) => m.routes),
+        canActivate: [ActivateRouter]
       },
       {
         path: 'operate/device',
-        canActivate: [RedirectRouter],
-        loadChildren: () => import('./views/dashboard/routes').then((m) => m.routes)
+        loadChildren: () => import('./views/dashboard/routes').then((m) => m.routes),
+        canActivate: [ActivateRouter]
       },
       {
         path: 'operate/product',
-        canActivate: [RedirectRouter],
-        loadChildren: () => import('./views/theme/routes').then((m) => m.routes)
+        loadChildren: () => import('./views/vending-machine/operate/product-management/routes').then((m) => m.routes),
+        canActivate: [ActivateRouter]
       },
       {
         path: 'customer-care/purchase-history',
-        canActivate: [RedirectRouter],
-        loadChildren: () => import('./views/theme/routes').then((m) => m.routes)
+        loadChildren: () => import('./views/theme/routes').then((m) => m.routes),
+        canActivate: [ActivateRouter]
       },
       {
-        path: 'admin/user-management',
-        canActivate: [RedirectRouter],
-        loadChildren: () => import('./views/theme/routes').then((m) => m.routes)
+        path: 'admin/create-user',
+        loadChildren: () => import('./views/vending-machine/admin/create-user/routes').then((m) => m.routes),
+        canActivate: [ActivateRouter]
       },
       {
         path: 'admin/advertisement-management',
-        canActivate: [RedirectRouter],
-        loadChildren: () => import('./views/theme/routes').then((m) => m.routes)
+        loadChildren: () => import('./views/theme/routes').then((m) => m.routes),
+        canActivate: [ActivateRouter]
       },
       {
-        path: 'admin/password-management',
-        canActivate: [RedirectRouter],
-        loadChildren: () => import('./views/theme/routes').then((m) => m.routes)
+        path: 'admin/reset-password',
+        loadChildren: () => import('./views/vending-machine/admin/reset-password/routes').then((m) => m.routes),
+        canActivate: [ActivateRouter]
       },
       {
         path: 'admin/lock-account',
-        canActivate: [RedirectRouter],
-        loadChildren: () => import('./views/theme/routes').then((m) => m.routes)
+        loadChildren: () => import('./views/theme/routes').then((m) => m.routes),
+        canActivate: [ActivateRouter]
       },
       {
         path: 'admin/unLock-account',
-        canActivate: [RedirectRouter],
-        loadChildren: () => import('./views/theme/routes').then((m) => m.routes)
+        loadChildren: () => import('./views/theme/routes').then((m) => m.routes),
+        canActivate: [ActivateRouter]
       },
     ]
   },
