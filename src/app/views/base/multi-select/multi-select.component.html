@@ -1,0 +1,13 @@
+<ng-multiselect-dropdown
+  #multipleSelectDropdownCustom
+  class="multiple-select-dropdown-custom"
+  [placeholder]="'---Chọn---'"
+  [settings]="dropdownSettings"
+  [data]="dropdownList"
+  [(ngModel)]="selectedItems"
+  (onSelect)="onItemSelect($event)"
+  (onSelectAll)="onSelectAll($event)"
+  (onDeSelect)="onItemSelect($event)"
+  (onDeSelectAll)="onItemSelect($event)"
+>
+</ng-multiselect-dropdown>

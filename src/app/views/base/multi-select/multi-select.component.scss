@@ -1,0 +1,14 @@
+$base-color: red;
+$disable-background-color: black;
+::ng-deep .multiple-select-dropdown-custom .multiselect-dropdown {
+  border: none;
+}
+
+::ng-deep .multiple-select-dropdown-custom .multiselect-dropdown .dropdown-btn{
+  background-color: white;
+  border: 1px solid #dddddd!important;
+}
+
+//::ng-deep .multiple-select-dropdown-custom .multiselect-dropdown .dropdown-btn .selected-item{
+//  background-color: red!important;
+//}
