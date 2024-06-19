@@ -47,7 +47,7 @@ export const routes: Routes = [
       },
       {
         path: 'admin/advertisement-management',
-        loadChildren: () => import('./views/theme/routes').then((m) => m.routes),
+        loadChildren: () => import('./views/vending-machine/admin/advertisement-management/routes').then((m) => m.routes),
         canActivate: [ActivateRouter]
       },
       {

@@ -1,4 +1,7 @@
+<div class="dropdown-container" [class.single-selection]="singleSelection" >
+  <button (click)="toggleDropdown($event)"> abc</button>
 <ng-multiselect-dropdown
+  id="multipleSelectDropdownCustom"
   #multipleSelectDropdownCustom
   class="multiple-select-dropdown-custom"
   [placeholder]="'---Chọn---'"
@@ -11,3 +14,7 @@
   (onDeSelectAll)="onItemSelect($event)"
 >
 </ng-multiselect-dropdown>
+  <div *ngIf="singleSelection && selectedItems.length > 0" class="selected-item">
+    <span class="dropdown-item-text">{{ selectedItems[0].value }}</span>
+  </div>
+</div>

@@ -1,6 +1,7 @@
 import {Component, EventEmitter, Input, OnInit, Output, ViewChild} from '@angular/core';
 import {NgMultiSelectDropDownModule} from "ng-multiselect-dropdown";
 import {ControlValueAccessor, FormsModule, NG_VALUE_ACCESSOR, ReactiveFormsModule} from "@angular/forms";
+import {NgIf} from "@angular/common";
 
 @Component({
   selector: 'app-multi-select',
@@ -8,7 +9,8 @@ import {ControlValueAccessor, FormsModule, NG_VALUE_ACCESSOR, ReactiveFormsModul
   imports: [
     NgMultiSelectDropDownModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    NgIf
   ],
   providers: [
     {
@@ -30,7 +32,7 @@ export class MultiSelectComponent implements OnInit, ControlValueAccessor {
   @Input() parentForm: any;
   @Output() onSelectedData = new EventEmitter<any>();
 
-  @ViewChild("multipleSelectDropdownCustom") dropdown: any;
+  @ViewChild('multipleSelectDropdownCustom', { static: false }) dropdown: any;
 
   dropdownList: any = [];
   selectedItems: any = [];
@@ -63,7 +65,7 @@ export class MultiSelectComponent implements OnInit, ControlValueAccessor {
       noFilteredDataAvailablePlaceholderText: 'Không có dữ liệu tìm kiếm',
       enableCheckAll: this.enableCheckAll,
       clearSearchFilter: true,
-      closeDropDownOnSelection: true,
+      closeDropDownOnSelection: this.singleSelection,
       searchIcon: true
     };
   }
@@ -116,6 +118,13 @@ export class MultiSelectComponent implements OnInit, ControlValueAccessor {
   onDeSelectAll(items: any) {
     const selectedKeys = this.selectedItems.map((item: any) => item.key);
     this.onChange(selectedKeys); // Gọi onChange khi có thay đổi
+  }
+
+
+  toggleDropdown($event: MouseEvent) {
+    if (this.dropdown && this.dropdown.toggleDropdown) {
+      this.dropdown.toggleDropdown();
+    }
   }
 
 }
