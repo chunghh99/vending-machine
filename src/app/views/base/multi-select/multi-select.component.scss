@@ -12,3 +12,22 @@ $disable-background-color: black;
 //::ng-deep .multiple-select-dropdown-custom .multiselect-dropdown .dropdown-btn .selected-item{
 //  background-color: red!important;
 //}
+
+
+.single-selection .selected-item {
+  width: 100%;
+  display: block;
+  padding: 6px 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background-color: #fff;
+  cursor: pointer;
+  box-sizing: border-box;
+}
+
+.single-selection .selected-item .dropdown-item-text {
+  display: block;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
