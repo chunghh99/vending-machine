@@ -1,0 +1,111 @@
+<div>
+  <h4 *ngIf="action === 'CREATE'">Thêm mới quảng cáo</h4>
+  <h4 *ngIf="action === 'UPDATE'">Cập nhật quảng cáo</h4>
+
+  <div class="from" [formGroup]="formSave">
+    <div class="row mt-5">
+      <div class="col-md-2 col-sm-4 col-xs-12">
+        <label class="form-label col-form-label"> Tên quảng cáo</label>
+      </div>
+      <div class="col-md-4 col-sm-8 col-xs-12">
+        <input class="form-control" formControlName="name">
+      </div>
+
+      <div class="col-md-2 col-sm-4 col-xs-12">
+        <label class="form-label col-form-label"> Hiệu Lực</label>
+      </div>
+
+      <div class="col-md-4 col-sm-8 col-xs-12">
+        <input class="form-control custom-date-input" formControlName="fromDate" type="date"
+               style="max-width: 45%; float: left">
+        <input class="form-control custom-date-input" formControlName="toDate" type="date"
+               style="max-width: 45%; float: right">
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-2 col-sm-4 col-xs-12">
+        <label class="form-label col-form-label"> Địa điểm</label>
+      </div>
+      <div class="col-md-4 col-sm-8 col-xs-12">
+        <app-selection formControlName="location" [searchable]="true" [multiple]="true"></app-selection>
+      </div>
+
+      <div class="col-md-2 col-sm-4 col-xs-12">
+        <label class="form-label col-form-label"> Tên máy</label>
+      </div>
+
+      <div class="col-md-4 col-sm-8 col-xs-12">
+        <app-selection formControlName="deviceName" [searchable]="true" [multiple]="true"></app-selection>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-2 col-sm-4 col-xs-12">
+        <label class="form-label col-form-label"> Vị trí hiển thị</label>
+      </div>
+      <div class="col-md-4 col-sm-8 col-xs-12">
+        <app-selection formControlName="locationDisplay" [searchable]="true" [multiple]="true"></app-selection>
+      </div>
+
+      <div class="col-md-2 col-sm-4 col-xs-12">
+        <label class="form-label col-form-label"> Block</label>
+      </div>
+
+      <div class="col-md-4 col-sm-8 col-xs-12">
+        <app-selection formControlName="block" [searchable]="true"></app-selection>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-2 col-sm-4 col-xs-12">
+        <label class="form-label col-form-label"> Tên hình ảnh</label>
+      </div>
+      <div class="col-md-4 col-sm-8 col-xs-12">
+        <input class="form-control" formControlName="imageName">
+      </div>
+
+      <div class="col-md-2 col-sm-4 col-xs-12">
+        <label class="form-label col-form-label"> Hình ảnh</label>
+      </div>
+
+      <div class="col-md-4 col-sm-8 col-xs-12">
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-2 col-sm-4 col-xs-12">
+        <label class="form-label col-form-label"> Thứ tự hiển thị hình ảnh</label>
+      </div>
+      <div class="col-md-4 col-sm-8 col-xs-12">
+        <input class="form-control" formControlName="displayOrder" type="number">
+      </div>
+
+      <div class="col-md-2 col-sm-4 col-xs-12">
+      </div>
+
+      <div class="col-md-4 col-sm-8 col-xs-12">
+      </div>
+    </div>
+
+    <div class="row mt-3">
+      <div class="col-12 text-center " *ngIf="action === 'CREATE'">
+        <button type="button" class="btn btn-primary-custom ml-20" (click)="onCreate()"><i class="fa fa-plus"></i> Thêm
+          mới
+        </button>
+      </div>
+
+      <div class="col-12 text-center " *ngIf="action  === 'UPDATE'">
+        <button type="button" class="btn btn-primary-custom ml-20" (click)="onCreate()"><i class="fa fa-save"></i> Cập nhật
+        </button>
+        <button type="button" class="btn btn-primary ml-20" (click)="onCreate()"><i class="fa fa-copy"></i> Sao chép
+        </button>
+        <button type="button" class="btn btn-secondary ml-20" (click)="onCreate()"><i class="fa fa-trash-o"></i> Xóa
+        </button>
+      </div>
+    </div>
+
+
+  </div>
+</div>
+
