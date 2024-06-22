@@ -34,6 +34,8 @@
 @import 'bootstrap/scss/variables';
 @import 'bootstrap/scss/mixins';
 
+@import '@ng-select/ng-select/themes/default.theme.css';
+
 
 @keyframes shake {
   0% {
@@ -97,7 +99,7 @@ a.nav-link.active {
 
 /* Thay đổi màu chữ cho table body */
 .table tbody td {
-  color: #6c757d;
+  color: black;
 }
 
 /* Tạo hover effect cho hàng trong table */
@@ -351,7 +353,7 @@ tbody {
 }
 
 th {
-  color: #666;
+  color: black;
   font-weight: 500;
 }
 
@@ -527,6 +529,29 @@ table.focus-on tbody tr.focused td, table.focus-on tbody tr.focused th {
 
 .is-invalid {
   border: 1px solid red !important;
+}
+
+.ml-20 {
+  margin-left: 20px;
+}
+.ml-5 {
+  margin-left: 10px;
+}
+
+.hover-color-red:hover {
+  color: #ee0032;
+}
+
+.font-size-18 {
+  font-size: 18px;
+}
+
+body {
+  font-size: 15px;
+}
+
+.color-black{
+  color: black;
 }
 
 
