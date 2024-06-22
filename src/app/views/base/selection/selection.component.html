@@ -1,16 +1,24 @@
 <ng-select
-  [items]="people"
-  [multiple]="true"
-  bindLabel="name"
-  groupBy="gender"
-  [selectableGroup]="true"
-  [closeOnSelect]="false"
-  bindValue="id"
-  [(ngModel)]="selectedPeople">
+  [items]="items"
+  [multiple]="multiple"
+  [bindLabel]="bindLabel"
+  [closeOnSelect]="!multiple"
+  [bindValue]="bindValue"
+  [(ngModel)]="selectedItems"
+  (add)="onAddItem($event)"
+  (change) ="onChangeItem($event)"
+  [searchable] = "searchable"
+  [readonly] = "readonly"
+  [clearable] = "clearable"
+  notFoundText="Không tìm thấy dữ liệu"
+  class="selection-custom "
+>
+  <ng-container *ngIf="multiple">
   <ng-template ng-optgroup-tmp let-item="item" let-item$="item$" let-index="index">
-    <input id="item-{{index}}" type="checkbox" [ngModel]="item$.selected"/> {{item.gender}}
+    <input id="item-{{index}}" type="checkbox" [ngModel]="item$.selected"/> {{ item[bindLabel] }}
   </ng-template>
   <ng-template ng-option-tmp let-item="item" let-item$="item$" let-index="index">
-    <input id="item-{{index}}" type="checkbox" [ngModel]="item$.selected"/> {{item.name}}
+    <input id="item-{{index}}" type="checkbox" [ngModel]="item$.selected"/> {{ item[bindLabel] }}
   </ng-template>
+  </ng-container>
 </ng-select>
