@@ -23,7 +23,7 @@
       </div>
     </div>
 
-    <div class="row">
+    <div class="row row mt-3">
       <div class="col-md-2 col-sm-4 col-xs-12">
         <label class="form-label col-form-label"> Địa điểm</label>
       </div>
@@ -40,7 +40,7 @@
       </div>
     </div>
 
-    <div class="row">
+    <div class="row row mt-3">
       <div class="col-md-2 col-sm-4 col-xs-12">
         <label class="form-label col-form-label"> Vị trí hiển thị</label>
       </div>
@@ -57,7 +57,7 @@
       </div>
     </div>
 
-    <div class="row">
+    <div class="row row mt-3">
       <div class="col-md-2 col-sm-4 col-xs-12">
         <label class="form-label col-form-label"> Tên hình ảnh</label>
       </div>
@@ -73,7 +73,7 @@
       </div>
     </div>
 
-    <div class="row">
+    <div class="row row mt-3">
       <div class="col-md-2 col-sm-4 col-xs-12">
         <label class="form-label col-form-label"> Thứ tự hiển thị hình ảnh</label>
       </div>
@@ -88,14 +88,14 @@
       </div>
     </div>
 
-    <div class="row mt-3">
-      <div class="col-12 text-center " *ngIf="action === 'CREATE'">
+    <div class="row">
+      <div class="col-12 text-center mt-3" *ngIf="action === 'CREATE'">
         <button type="button" class="btn btn-primary-custom ml-20" (click)="onCreate()"><i class="fa fa-plus"></i> Thêm
           mới
         </button>
       </div>
 
-      <div class="col-12 text-center " *ngIf="action  === 'UPDATE'">
+      <div class="col-12 text-center mt-3" *ngIf="action  === 'UPDATE'">
         <button type="button" class="btn btn-primary-custom ml-20" (click)="onCreate()"><i class="fa fa-save"></i> Cập nhật
         </button>
         <button type="button" class="btn btn-primary ml-20" (click)="onCreate()"><i class="fa fa-copy"></i> Sao chép
