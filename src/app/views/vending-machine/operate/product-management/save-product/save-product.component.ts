@@ -1,23 +1,25 @@
 import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormsModule, ReactiveFormsModule, Validators} from "@angular/forms";
-import {SelectionComponent} from "../../../../base/selection/selection.component";
 import {ActivatedRoute, Router} from "@angular/router";
-import {NgIf} from "@angular/common";
 import {DomSanitizer} from "@angular/platform-browser";
+import {SelectionComponent} from "../../../../base/selection/selection.component";
+import {NgIf} from "@angular/common";
+import {NumericCurrencyDirective} from "../../../../../directive/numeric-currency.directive";
 
 @Component({
-  selector: 'app-save-advertisement',
+  selector: 'app-save-product',
   standalone: true,
   imports: [
     FormsModule,
-    ReactiveFormsModule,
     SelectionComponent,
-    NgIf
+    ReactiveFormsModule,
+    NgIf,
+    NumericCurrencyDirective
   ],
-  templateUrl: './save-advertisement.component.html',
-  styleUrl: './save-advertisement.component.scss'
+  templateUrl: './save-product.component.html',
+  styleUrl: './save-product.component.scss'
 })
-export class SaveAdvertisementComponent implements OnInit {
+export class SaveProductComponent implements OnInit{
   formSave: any;
   action: any = 'CREATE';
   previewImages: any;
@@ -41,16 +43,13 @@ export class SaveAdvertisementComponent implements OnInit {
 
 
     this.formSave = this.fb.group({
-      name: ['', [Validators.required]],
-      fromDate: [''],
-      toDate: [''],
-      location: [''],
-      deviceName: [''],
-      locationDisplay: [''],
-      block: [''],
-      imageName: [''],
-      image: [''],
-      displayOrder: ['']
+      productCode: ['', [Validators.required]],
+      productName: ['', [Validators.required]],
+      slotType: ['', [Validators.required]],
+      imageName: ['', [Validators.required]],
+      image: ['', [Validators.required]],
+      displayPrice: ['', [Validators.required]],
+      inputPrice: ['', [Validators.required]]
     })
 
     if(this.router.url.includes('/update/')){
@@ -105,4 +104,13 @@ export class SaveAdvertisementComponent implements OnInit {
 
 
 
+  validField(field: string): boolean {
+    const control = this.formSave.get(field)
+    return control.invalid && (control.dirty || control.touched)
+  }
+
+  showError(controlName: any, errorName: any) {
+    const control = this.formSave.get(controlName);
+    return control.hasError(errorName) && control.touched;
+  }
 }

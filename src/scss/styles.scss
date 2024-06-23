@@ -63,7 +63,9 @@
   animation: shake 0.5s;
 }
 
-.form-control:focus {
+.form-control:focus,
+.form-control:hover
+{
   border-color: #ee0032 !important;
   box-shadow: 0 0 5px red;
 }
@@ -552,6 +554,56 @@ body {
 
 .color-black{
   color: black;
+}
+
+
+.custom-file {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+  height: calc(2.25rem + 2px);
+  margin-bottom: 0;
+}
+.custom-file-input {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  height: calc(2.25rem + 2px);
+  margin: 0;
+  opacity: 0;
+  display: none;
+}
+.custom-file-label {
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: 1;
+  height: calc(2.25rem + 2px);
+  padding: 0.375rem 0.75rem;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #495057;
+  background-color: #fff;
+  border: 1px solid #ced4da;
+  border-radius: 0.25rem;
+}
+.custom-file-label:focus,
+.custom-file-label:active,
+.custom-file-label:hover,
+{
+  box-shadow: 0 0 5px red;
+  border: 1px solid red;
+}
+
+.input-file-custom:focus,
+.input-file-custom:active,
+.input-file-custom:focus-visible,
+{
+  box-shadow: none;
+}
+.preview {
+  max-width: 100%;
 }
 
 

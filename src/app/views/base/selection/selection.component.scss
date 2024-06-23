@@ -3,4 +3,15 @@
   box-shadow: 0 0 5px red;
 }
 
+::ng-deep .ng-select-container:hover {
+  border-color: #ee0032;
+  box-shadow: 0 0 5px red !important;
+}
+
+::ng-deep .invalid-selection{
+  border: 1px solid #ee0032!important;
+  box-shadow: 0 0 5px red !important;
+}
+
+
 

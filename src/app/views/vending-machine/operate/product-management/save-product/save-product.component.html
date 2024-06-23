@@ -1,0 +1,123 @@
+<div>
+  <h4 *ngIf="action === 'CREATE'">Thêm mới hàng hóa</h4>
+  <h4 *ngIf="action === 'UPDATE'">Cập nhật hàng hóa</h4>
+
+  <div class="from" [formGroup]="formSave">
+    <div class="row mt-5">
+      <div class="col-md-2 col-sm-4 col-xs-12">
+        <label class="form-label col-form-label"> Mã hàng hóa<span class="required">*</span></label>
+      </div>
+      <div class="col-md-4 col-sm-8 col-xs-12">
+        <input class="form-control" formControlName="productCode" [class.is-invalid]="validField('productCode')">
+        <div *ngIf="validField('productCode')">
+          <div *ngIf="showError('productCode', 'required')" class="error-message">
+            Mã hàng hóa không được để trống.
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-2 col-sm-4 col-xs-12">
+        <label class="form-label col-form-label"> Tên hàng hóa<span class="required">*</span></label>
+      </div>
+
+      <div class="col-md-4 col-sm-8 col-xs-12">
+        <input class="form-control" formControlName="productName" [class.is-invalid]="validField('productName')">
+        <div *ngIf="validField('productName')">
+          <div *ngIf="showError('productName', 'required')" class="error-message">
+            Tên hàng hóa không được để trống.
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row row mt-3">
+      <div class="col-md-2 col-sm-4 col-xs-12">
+        <label class="form-label col-form-label"> Loại slot<span class="required">*</span></label>
+      </div>
+      <div class="col-md-4 col-sm-8 col-xs-12">
+        <input class="form-control" formControlName="slotType" [class.is-invalid]="validField('slotType')">
+        <div *ngIf="validField('slotType')">
+          <div *ngIf="showError('slotType', 'required')" class="error-message">
+            Loại slot không được để trống.
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-2 col-sm-4 col-xs-12">
+        <label class="form-label col-form-label"> Hình ảnh<span class="required">*</span></label>
+      </div>
+
+      <div class="col-md-2 col-sm-4 col-xs-6">
+        <img [src]="previewImages" class="preview"/>
+      </div>
+
+      <div class="col-md-2 col-sm-4 col-xs-6">
+        <div class="custom-file">
+          <input type="file" class="form-control input-file-custom" [multiple]="false" accept="image/jpeg"
+                 formControlName="image"
+                 id="image"
+                 (change)="onFileChange($event)">
+          <label class="custom-file-label cursor-pointer text-center" for="image" [class.is-invalid]="validField('imageName')"><i
+            class="fa fa-file-image-o float-start"
+            style="margin-top: 2%"></i>
+            @if (formSave.controls.imageName.value) {
+              {{ formSave.controls.imageName.value }}
+            } @else {
+              Chọn file
+            }
+          </label>
+          <div *ngIf="validField('imageName')">
+            <div *ngIf="showError('imageName', 'required')" class="error-message">
+              Hình ảnh không được để trống.
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row row mt-3">
+      <div class="col-md-2 col-sm-4 col-xs-12">
+        <label class="form-label col-form-label"> Giá hiển thị(Đồng)<span class="required">*</span></label>
+      </div>
+      <div class="col-md-4 col-sm-8 col-xs-12">
+        <input class="form-control" formControlName="displayPrice" appNumericCurrency [class.is-invalid]="validField('displayPrice')">
+        <div *ngIf="validField('displayPrice')">
+          <div *ngIf="showError('displayPrice', 'required')" class="error-message">
+            Giá hiển thị không được để trống.
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-2 col-sm-4 col-xs-12">
+        <label class="form-label col-form-label"> Giá nhập(Đồng)<span class="required">*</span></label>
+      </div>
+
+      <div class="col-md-4 col-sm-8 col-xs-12">
+        <input class="form-control" formControlName="inputPrice" appNumericCurrency [class.is-invalid]="validField('inputPrice')">
+        <div *ngIf="validField('inputPrice')">
+          <div *ngIf="showError('inputPrice', 'required')" class="error-message">
+            Giá nhập không được để trống.
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="row">
+      <div class="col-12 text-center mt-3" *ngIf="action === 'CREATE'">
+        <button type="button" class="btn btn-primary-custom ml-20" (click)="onCreate()"><i class="fa fa-plus"></i> Thêm
+          mới
+        </button>
+      </div>
+
+      <div class="col-12 text-center mt-3" *ngIf="action  === 'UPDATE'">
+        <button type="button" class="btn btn-primary-custom ml-20" (click)="onCreate()"><i class="fa fa-save"></i> Cập
+          nhật
+        </button>
+      </div>
+    </div>
+
+
+  </div>
+</div>
+

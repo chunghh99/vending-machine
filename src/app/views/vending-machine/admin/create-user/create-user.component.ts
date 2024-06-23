@@ -4,17 +4,19 @@ import {ToastrService} from "ngx-toastr";
 import {NgIf} from "@angular/common";
 import {NgMultiSelectDropDownModule} from "ng-multiselect-dropdown";
 import {MultiSelectComponent} from "../../../base/multi-select/multi-select.component";
+import {SelectionComponent} from "../../../base/selection/selection.component";
 
 @Component({
   selector: 'app-create-user',
   standalone: true,
-  imports: [
-    ReactiveFormsModule,
-    NgIf,
-    NgMultiSelectDropDownModule,
-    FormsModule,
-    MultiSelectComponent
-  ],
+    imports: [
+        ReactiveFormsModule,
+        NgIf,
+        NgMultiSelectDropDownModule,
+        FormsModule,
+        MultiSelectComponent,
+        SelectionComponent
+    ],
   templateUrl: './create-user.component.html',
   styleUrl: './create-user.component.scss'
 })

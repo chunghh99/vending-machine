@@ -1,3 +1,4 @@
+<div  style="border-radius: 5px">
 <ng-select
   [items]="items"
   [multiple]="multiple"
@@ -10,8 +11,9 @@
   [searchable] = "searchable"
   [readonly] = "readonly"
   [clearable] = "clearable"
+  (blur)="onBlur()"
   notFoundText="Không tìm thấy dữ liệu"
-  class="selection-custom "
+  class="selection-custom"
 >
   <ng-container *ngIf="multiple">
   <ng-template ng-optgroup-tmp let-item="item" let-item$="item$" let-index="index">
@@ -22,3 +24,4 @@
   </ng-template>
   </ng-container>
 </ng-select>
+</div>
