@@ -27,7 +27,7 @@ export const routes: Routes = [
       },
       {
         path: 'operate/device',
-        loadChildren: () => import('./views/dashboard/routes').then((m) => m.routes),
+        loadChildren: () => import('./views/vending-machine/operate/device-management/routes').then((m) => m.routes),
         canActivate: [ActivateRouter]
       },
       {

@@ -1,0 +1,164 @@
+<div [formGroup]="formSave" class="align-items-center ">
+    <h4 *ngIf="action==='CREATE'">Thiết lập thiết bị</h4>
+    <h4 *ngIf="action==='UPDATE'">Cập nhật thiết bị</h4>
+
+    <div class="row">
+      <div class="col-md-2 col-sm-4 col-xs-12 mt-3">
+        <label class="form-label col-form-label"> Tên máy</label>
+      </div>
+
+      <div class="col-md-4 col-sm-8 col-xs-12 mt-3">
+        <input class="form-control" formControlName="deviceName" [class.is-invalid]="validField('deviceName')">
+        <div *ngIf="validField('deviceName')">
+          <div *ngIf="showError('deviceName', 'required')" class="error-message">
+            Tên máy không được để trống.
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-2 col-sm-4 col-xs-12 mt-3">
+        <label class="form-label col-form-label"> Địa điểm</label>
+      </div>
+
+      <div class="col-md-4 col-sm-8 col-xs-12 mt-3">
+        <app-selection formControlName="place" [searchable]="true" [multiple]="true"></app-selection>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-2 col-sm-4 col-xs-12 mt-3">
+        <label class="form-label col-form-label"> Slot đơn</label>
+      </div>
+
+      <div class="col-md-4 col-sm-8 col-xs-12 mt-3">
+        <input class="form-control" formControlName="slotSingle" [class.is-invalid]="validField('slotSingle')">
+        <div *ngIf="validField('slotSingle')">
+          <div *ngIf="showError('slotSingle', 'required')" class="error-message">
+            Slot đơn không được để trống.
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-2 col-sm-4 col-xs-12 mt-3">
+        <label class="form-label col-form-label"> Số lượng hàng tối đa</label>
+      </div>
+
+      <div class="col-md-4 col-sm-8 col-xs-12 mt-3">
+        <input class="form-control" formControlName="slotSingleMax" [class.is-invalid]="validField('deviceName')">
+        <div *ngIf="validField('slotSingleMax')">
+          <div *ngIf="showError('slotSingleMax', 'required')" class="error-message">
+            Số lượng hàng tối đa không được để trống.
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-2 col-sm-4 col-xs-12 mt-3">
+        <label class="form-label col-form-label"> Slot đôi</label>
+      </div>
+
+      <div class="col-md-4 col-sm-8 col-xs-12 mt-3">
+        <input class="form-control" formControlName="slotDouble" [class.is-invalid]="validField('slotDouble')">
+        <div *ngIf="validField('slotDouble')">
+          <div *ngIf="showError('slotDouble', 'required')" class="error-message">
+            Slot đôi không được để trống.
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-2 col-sm-4 col-xs-12 mt-3">
+        <label class="form-label col-form-label"> Số lượng hàng tối đa</label>
+      </div>
+
+      <div class="col-md-4 col-sm-8 col-xs-12 mt-3">
+        <input class="form-control" formControlName="slotDoubleMax" [class.is-invalid]="validField('slotDoubleMax')">
+        <div *ngIf="showError('slotDoubleMax', 'required')" class="error-message">
+          Số lượng hàng tối đa không được để trống.
+        </div>
+      </div>
+
+    </div>
+
+    <div class="row">
+      <div class="col-md-2 col-sm-4 col-xs-12 mt-3">
+        <label class="form-label col-form-label"> Phương thức thanh toán</label>
+      </div>
+
+      <div class="col-md-4 col-sm-8 col-xs-12 mt-3">
+        <app-selection formControlName="pttt" [searchable]="true" [multiple]="true"></app-selection>
+        <div *ngIf="validField('pttt')">
+          <div *ngIf="showError('pttt', 'required')" class="error-message">
+            Phương thức thanh toán không được để trống.
+          </div>
+        </div>
+      </div>
+    </div>
+
+  <div class="mt-3 border-box" style="">
+    <h4>Thiết lập hàng hóa</h4>
+    <div class="row">
+      <div class="col-md-2 col-sm-4 col-xs-12 mt-3">
+        <label class="form-label col-form-label"> Slot 1</label>
+      </div>
+
+      <div class="col-md-4 col-sm-8 col-xs-12 mt-3">
+        <app-selection formControlName="slot1" [searchable]="true" [multiple]="true"></app-selection>
+        <div *ngIf="validField('slot1')">
+          <div *ngIf="showError('slot1', 'required')" class="error-message">
+            Slot 1 không được để trống.
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-2 col-sm-4 col-xs-12 mt-3">
+        <label class="form-label col-form-label"> slot 2</label>
+      </div>
+
+      <div class="col-md-4 col-sm-8 col-xs-12 mt-3">
+        <app-selection formControlName="slot2" [searchable]="true" [multiple]="true"></app-selection>
+        <div *ngIf="validField('slot2')">
+          <div *ngIf="showError('slot2', 'required')" class="error-message">
+            Slot 2 không được để trống.
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-2 col-sm-4 col-xs-12 mt-3">
+        <label class="form-label col-form-label"> Slot 1</label>
+      </div>
+
+      <div class="col-md-4 col-sm-8 col-xs-12 mt-3">
+        <app-selection formControlName="slotN" [searchable]="true" [multiple]="true"></app-selection>
+        <div *ngIf="validField('slotN')">
+          <div *ngIf="showError('slotN', 'required')" class="error-message">
+            Slot n không được để trống.
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+
+  <div class="row mt-3">
+    <div class="col-12 text-center" *ngIf="action==='CREATE'">
+      <button type="button" class="btn btn-primary-custom ml-20" (click)="onCreate()"><i class="fa fa-plus"></i>
+        Thiết lập
+      </button>
+    </div>
+
+    <div class="col-12 text-center" *ngIf="action==='UPDATE'">
+      <button type="button" class="btn btn-primary-custom ml-20" (click)="onUpdate()"><i class="fa fa-plus"></i>
+        Cập nhật
+      </button>
+
+      <button type="button" class="btn btn-primary ml-20" (click)="onCopy()"><i class="fa fa-copy"></i>
+        Sao chép
+      </button>
+    </div>
+  </div>
+
+</div>
