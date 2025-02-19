@@ -1,6 +1,6 @@
 import {Injectable} from '@angular/core';
 import {ActivatedRouteSnapshot, CanActivate, Router, RouterStateSnapshot} from '@angular/router';
-import {Constants} from "./constants";
+import {Constants} from "./core/constants/constants";
 
 @Injectable({
   providedIn: 'root'

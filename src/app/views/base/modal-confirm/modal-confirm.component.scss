@@ -1,0 +1,15 @@
+/* Kiểm tra modal styles trong SCSS */
+.modal-dialog {
+  /* Đảm bảo rằng modal có một vị trí hợp lý */
+  position: relative;
+  top: 50%;
+  transform: translate(-50%, -50%);
+
+  ::ng-deep .btn-close:focus {
+    box-shadow: none !important;
+  }
+
+  ::ng-deep #button-close:focus {
+    box-shadow: none !important;
+  }
+}

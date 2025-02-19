@@ -111,6 +111,14 @@ export class SelectionComponent implements OnInit, ControlValueAccessor {
     }
   }
 
+  onClear($event: any) {
+    if (this.multiple) {
+      this.onChange([]);
+    } else {
+      this.onChange('');
+    }
+  }
+
   onBlur() {
     this.onTouched();
     const elements = this.elementRef.nativeElement.getElementsByClassName('ng-select-container');

@@ -8,6 +8,7 @@
   [(ngModel)]="selectedItems"
   (add)="onAddItem($event)"
   (change) ="onChangeItem($event)"
+  (clear)="onClear($event)"
   [searchable] = "searchable"
   [readonly] = "readonly"
   [clearable] = "clearable"

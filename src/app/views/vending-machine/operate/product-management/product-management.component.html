@@ -65,18 +65,18 @@
 
 <!--</form>-->
 <div [formGroup]="formSearch" class="align-items-center">
-<h4>Quản lý hàng hóa</h4>
+  <h4>Quản lý hàng hóa</h4>
 
-<div class="row mt-3">
-  <div class="col-md-2 col-sm-4 col-xs-12">
-    <label class="form-label col-form-label"> Tên sản phẩm</label>
+  <div class="row mt-3">
+    <div class="col-md-2 col-sm-4 col-xs-12">
+      <label class="form-label col-form-label"> Tên sản phẩm</label>
+    </div>
+
+    <div class="col-md-4 col-sm-8 col-xs-12">
+      <app-selection formControlName="productName" [searchable]="true" [multiple]="true"
+                     [items]="itemsDefault"></app-selection>
+    </div>
   </div>
-
-  <div class="col-md-4 col-sm-8 col-xs-12">
-    <app-selection formControlName="productName" [searchable]="true" [multiple]="true"></app-selection>
-  </div>
-</div>
-
 
 
   <div class="row mt-3">
@@ -104,19 +104,23 @@
       </tr>
       </thead>
       <tbody>
-      <tr *ngFor="let item of itemList">
-        <td [width]="'5%'" class="text-center">{{ item.id }}</td>
-        <td [width]="'5%'" class="text-center">{{ item.id }}</td>
-        <td [width]="'30%'" class="min-width-cl">{{ item.lastName }}</td>
-        <td [width]="'30%'" class="min-width-cl">{{ item.email }}</td>
-        <td [width]="'30%'" class="min-width-cl">{{ item.email }}</td>
-        <td [width]="'30%'" class="min-width-cl">{{ item.email }}</td>
-        <td [width]="'30%'" class="min-width-cl">{{ item.email }}</td>
+      <tr *ngFor="let item of itemstable, let index = index">
+        <td [width]="'5%'" class="text-center">{{ (index + 1) + (this.currentPage - 1) * this.itemPerPage }}</td>
+        <td [width]="'5%'" class="text-center">{{ item.code }}</td>
+        <td [width]="'15%'" class="min-width-cl">{{ item.name }}</td>
+        <td [width]="'15%'" class="min-width-cl">{{convertType(item.type)}}</td>
+        <td [width]="'15%'" class="min-width-cl">
+          <img [src]="item.image" alt="" style="width: 100px; height: 100px">
+        </td>
+        <td [width]="'15%'" class="min-width-cl text-center">{{ item.importedPrice | commaSeparated }}</td>
+        <td [width]="'15%'" class="min-width-cl text-center">{{ item.basePrice | commaSeparated }}</td>
         <td [width]="'5%'" class="text-center">
-          <a class="cursor-pointer hover-color-red font-size-18 color-black" [cTooltip]="'Chi tiết'" (click)="onDetail(item)">
+          <a class="cursor-pointer hover-color-red font-size-18 color-black" [cTooltip]="'Chi tiết'"
+             (click)="onDetail(item)">
             <i class="fa fa-pencil-square-o"></i>
           </a>
-          <a class="cursor-pointer hover-color-red font-size-18 ml-5 color-black" [cTooltip]="'Xóa'">
+          <a class="cursor-pointer hover-color-red font-size-18 ml-5 color-black" [cTooltip]="'Xóa'"
+            (click)="onDelete(item)">
             <i class="fa fa-trash-o"></i>
           </a>
         </td>
@@ -124,6 +128,7 @@
       </tbody>
     </table>
   </div>
-  <app-pagination [currentPage]="1" [totalItems]="1000"></app-pagination>
+  <app-pagination [currentPage]="currentPage" [totalItems]="totalItem" (pageChange)="pageChange($event)"
+                  (itemPerPageChange)="itemPerPageChange($event)"></app-pagination>
 
 </div>

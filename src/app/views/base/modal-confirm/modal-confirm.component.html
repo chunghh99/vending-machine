@@ -1,0 +1,12 @@
+<!-- confirm-modal.component.html -->
+<div class="modal-header">
+  <h5 class="modal-title" id="confirmModalLabel">{{ data.title || 'Confirm Action' }}</h5>
+  <button type="button" class="btn-close" id="button-close"  aria-label="Close" (click)="onCancel()" ></button>
+</div>
+<div class="modal-body">
+  <p>{{ data.message || 'Are you sure?' }}</p>
+</div>
+<div class="modal-footer">
+  <button type="button" class="btn btn-secondary" (click)="onCancel()">Hủy</button>
+  <button type="button" class="btn btn-primary" (click)="onConfirm()">Xác nhận</button>
+</div>

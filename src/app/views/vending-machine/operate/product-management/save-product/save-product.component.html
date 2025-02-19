@@ -35,7 +35,14 @@
         <label class="form-label col-form-label"> Loại slot<span class="required">*</span></label>
       </div>
       <div class="col-md-4 col-sm-8 col-xs-12">
-        <input class="form-control" formControlName="slotType" [class.is-invalid]="validField('slotType')">
+<!--        <input class="form-control" formControlName="slotType" [class.is-invalid]="validField('slotType')">-->
+
+              <select class="form-select custom-select" aria-label="" formControlName="slotType"
+                      [class.is-invalid]="validField('slotType')">
+                <option value="SINGLE" class="custom-option">Slot đơn</option>
+                <option value="DOUBLE" class="custom-option">Slot đôi</option>
+              </select>
+
         <div *ngIf="validField('slotType')">
           <div *ngIf="showError('slotType', 'required')" class="error-message">
             Loại slot không được để trống.
@@ -59,7 +66,7 @@
                  (change)="onFileChange($event)">
           <label class="custom-file-label cursor-pointer text-center" for="image" [class.is-invalid]="validField('imageName')"><i
             class="fa fa-file-image-o float-start"
-            style="margin-top: 2%"></i>
+            style="margin-top: 2%; height: auto"></i>
             @if (formSave.controls.imageName.value) {
               {{ formSave.controls.imageName.value }}
             } @else {
@@ -111,7 +118,7 @@
       </div>
 
       <div class="col-12 text-center mt-3" *ngIf="action  === 'UPDATE'">
-        <button type="button" class="btn btn-primary-custom ml-20" (click)="onCreate()"><i class="fa fa-save"></i> Cập
+        <button type="button" class="btn btn-primary-custom ml-20" (click)="onUpdate()"><i class="fa fa-save"></i> Cập
           nhật
         </button>
       </div>

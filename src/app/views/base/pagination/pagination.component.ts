@@ -15,6 +15,7 @@ export class PaginationComponent implements OnInit {
   @Input() totalItems: any; // Tổng số mục
   @Input() currentPage: any; // Trang hiện tại
   @Output() pageChange: EventEmitter<number> = new EventEmitter<number>(); // Sự kiện khi thay đổi trang
+  @Output() itemPerPageChange: EventEmitter<number> = new EventEmitter<number>(); // Sự kiện khi thay đổi item trên trang
 
   itemsPerPageOptions: number[] = [10, 20, 50]; // Các tùy chọn số mục trên mỗi trang
   itemsPerPage: number = this.itemsPerPageOptions[0]; // Số mục trên mỗi trang mặc định
@@ -48,6 +49,7 @@ export class PaginationComponent implements OnInit {
   changeItemsPerPage($event: any): void {
     this.setCurrentPage(1);
     this.itemsPerPage = $event.target.value;
+    this.itemPerPageChange.emit($event.target.value);
     this.calculateTotalPages();
   }
 
