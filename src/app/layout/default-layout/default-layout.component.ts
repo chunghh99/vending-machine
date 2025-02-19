@@ -17,7 +17,7 @@ import {
 
 import {DefaultFooterComponent, DefaultHeaderComponent} from './';
 import {SpinnerComponent} from "../../views/base/spinner/spinner.component";
-import {Constants} from "../../constants";
+import {Constants} from "../../core/constants/constants";
 
 function isOverflown(element: HTMLElement) {
   return (

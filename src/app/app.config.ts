@@ -13,6 +13,8 @@ import { DropdownModule, SidebarModule } from '@coreui/angular';
 import { IconSetService } from '@coreui/icons-angular';
 import { routes } from './app.routes';
 import {provideToastr} from "ngx-toastr";
+import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
+import {HttpClientInterceptor} from "./core/interceptor/httpClient.interceptor";
 
 export const appConfig: ApplicationConfig = {
   providers: [
@@ -28,9 +30,14 @@ export const appConfig: ApplicationConfig = {
       withViewTransitions(),
       withHashLocation()
     ),
-    importProvidersFrom(SidebarModule, DropdownModule),
+    importProvidersFrom(SidebarModule, DropdownModule, HttpClientModule),
     IconSetService,
     provideAnimations(),
-    provideToastr()
+    provideToastr(),
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: HttpClientInterceptor,
+      multi: true,
+    }
   ]
 };

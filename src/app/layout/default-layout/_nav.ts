@@ -72,7 +72,7 @@ export const navItems: INavData[] = [
         name: 'Mở khóa tài khoản',
         url: 'admin/unLock-account',
         icon: 'nav-icon-bullet'
-      }
+      },
     ]
   },
   // {

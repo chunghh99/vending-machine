@@ -68,8 +68,30 @@
       <div class="col-md-2 col-sm-4 col-xs-12">
         <label class="form-label col-form-label"> Hình ảnh</label>
       </div>
+      <!--      <div class="col-md-4 col-sm-8 col-xs-12">-->
+      <!--        <input type="file" class="form-control" [multiple]="false" accept="image/jpeg" formControlName="image" id="image"-->
+      <!--               (change)="onFileChange($event)">-->
+      <!--        <img [src]="previewImages" class="preview" />-->
+      <!--      </div>-->
 
-      <div class="col-md-4 col-sm-8 col-xs-12">
+      <div class="col-md-2 col-sm-4 col-xs-6">
+        <div class="custom-file">
+          <input type="file" class="form-control input-file-custom" [multiple]="false" accept="image/jpeg" formControlName="image"
+                 id="image"
+                 (change)="onFileChange($event)">
+          <label class="custom-file-label cursor-pointer text-center" for="image"><i class="fa fa-file-image-o float-start"
+                                                                                     style="margin-top: 2%"></i>
+            @if (formSave.controls.imageName.value) {
+              {{ formSave.controls.imageName.value }}
+            } @else {
+              Chọn file
+            }
+          </label>
+        </div>
+      </div>
+
+      <div class="col-md-2 col-sm-4 col-xs-6">
+        <img [src]="previewImages" class="preview"/>
       </div>
     </div>
 

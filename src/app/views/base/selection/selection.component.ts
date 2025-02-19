@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, ElementRef, Input, OnInit, Renderer2} from '@angular/core';
 import {NgSelectModule} from "@ng-select/ng-select";
 import {ControlValueAccessor, FormsModule, NG_VALUE_ACCESSOR} from "@angular/forms";
 import {NgIf} from "@angular/common";
@@ -30,6 +30,7 @@ export class SelectionComponent implements OnInit, ControlValueAccessor {
   @Input() searchable: boolean = false;
   @Input() readonly: boolean = false;
   @Input() clearable: any;
+  @Input() invalidSelection: boolean = false;
 
 
   people: any[] = [
@@ -51,14 +52,16 @@ export class SelectionComponent implements OnInit, ControlValueAccessor {
   ];
   selectedItems: any = [];
 
-  constructor() {
+  constructor(private renderer: Renderer2, private elementRef: ElementRef) {
   }
 
   ngOnInit() {
     if (!this.clearable) {
       this.clearable = this.multiple;
     }
-    this.items = this.people;
+    if (!this.items || this.items.length === 0) {
+      this.items = this.people;
+    }
   }
 
   registerOnChange(fn: any): void {
@@ -106,5 +109,33 @@ export class SelectionComponent implements OnInit, ControlValueAccessor {
     if (!this.multiple) {
       this.onChange($event[this.bindValue]);
     }
+  }
+
+  onClear($event: any) {
+    if (this.multiple) {
+      this.onChange([]);
+    } else {
+      this.onChange('');
+    }
+  }
+
+  onBlur() {
+    this.onTouched();
+    const elements = this.elementRef.nativeElement.getElementsByClassName('ng-select-container');
+    setTimeout(() => {
+      if (this.invalidSelection) {
+        for (let i = 0; i < elements.length; i++) {
+          // this.renderer.addClass(elements[i], 'invalid-selection');
+          this.renderer.addClass(elements[i], 'is-invalid');
+          // const htmlDiv = this.renderer.createElement('span');
+          // htmlDiv.innerHTML = '<i class="fa fa-exclamation-circle" style="color: red"></i>';
+          // this.renderer.appendChild(elements[i], htmlDiv);
+        }
+      } else {
+        for (let i = 0; i < elements.length; i++) {
+          this.renderer.removeClass(elements[i], 'is-invalid');
+        }
+      }
+    }, 5)
   }
 }

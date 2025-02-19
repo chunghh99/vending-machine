@@ -63,13 +63,17 @@
       <label class="form-label col-form-label"> Cây bán hàng quản lý<span class="required">*</span></label>
     </div>
     <div class="col-md-4 col-sm-4 col-xs-6">
-      <select class="form-select custom-select" aria-label="" formControlName="vendingMachine"
-              [class.is-invalid]="validField('vendingMachine')">
-        <option value="0" class="custom-option">Cây bán hàng keangNam</option>
-        <option value="1" class="custom-option">Cây bán hàng 1</option>
-        <option value="2" class="custom-option">Cây bán hàng 2</option>
-        <option value="3" class="custom-option">Cây bán hàng 3</option>
-      </select>
+
+      <app-selection formControlName="vendingMachine" [searchable]="false" [invalidSelection]="validField('vendingMachine')"></app-selection>
+
+
+<!--      <select class="form-select custom-select" aria-label="" formControlName="vendingMachine"-->
+<!--              [class.is-invalid]="validField('vendingMachine')">-->
+<!--        <option value="0" class="custom-option">Cây bán hàng keangNam</option>-->
+<!--        <option value="1" class="custom-option">Cây bán hàng 1</option>-->
+<!--        <option value="2" class="custom-option">Cây bán hàng 2</option>-->
+<!--        <option value="3" class="custom-option">Cây bán hàng 3</option>-->
+<!--      </select>-->
 
       <div *ngIf="validField('vendingMachine')">
         <div *ngIf="showError('vendingMachine', 'required')" class="error-message">

@@ -8,24 +8,25 @@ import {
   CardGroupComponent,
   ColComponent,
   ContainerComponent,
-  FormControlDirective,
   FormDirective,
   InputGroupComponent,
   InputGroupTextDirective,
-  RowComponent,
-  TextColorDirective
+  RowComponent
 } from '@coreui/angular';
 import {FormBuilder, FormGroup, ReactiveFormsModule, Validators} from "@angular/forms";
 import {Router} from "@angular/router";
-import {Constants} from "../../../constants";
 import {ToastrService} from "ngx-toastr";
+import {SpinnerComponent} from "../../base/spinner/spinner.component";
+import {SpinnerService} from "../../../services/spinner.service";
+import {AuthService} from "../../../services/vending-machine/auth.service";
+import {Constants} from "../../../core/constants/constants";
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss'],
   standalone: true,
-  imports: [ContainerComponent, RowComponent, ColComponent, CardGroupComponent, TextColorDirective, CardComponent, CardBodyComponent, FormDirective, InputGroupComponent, InputGroupTextDirective, IconDirective, FormControlDirective, ButtonDirective, NgStyle, ReactiveFormsModule, NgIf]
+  imports: [ContainerComponent, RowComponent, ColComponent, CardGroupComponent, CardComponent, CardBodyComponent, FormDirective, InputGroupComponent, InputGroupTextDirective, IconDirective, ButtonDirective, NgStyle, ReactiveFormsModule, NgIf, SpinnerComponent]
 })
 export class LoginComponent implements OnInit {
   loginForm: any;
@@ -101,14 +102,17 @@ export class LoginComponent implements OnInit {
           name: 'Mở khóa tài khoản',
           url: 'admin/unLock-account',
           icon: 'nav-icon-bullet'
-        }
+        },
       ]
     },]
 
 
   constructor(private formBuilder: FormBuilder,
               private router: Router,
-              private toastr: ToastrService) {
+              private toastr: ToastrService,
+              private spinnerService: SpinnerService,
+              private authService: AuthService
+  ) {
 
   }
 
@@ -144,11 +148,21 @@ export class LoginComponent implements OnInit {
       console.log(this.loginForm);
       return;
     }
-    localStorage.setItem(Constants.TOKEN, 'tokenxxx')
-    this.router.navigate(['/']);
 
-    localStorage.setItem(Constants.MENU, JSON.stringify(this.menu));
-    this.showSuccess();
+    this.spinnerService.show();
+    this.authService.login(this.loginForm.value).subscribe(res => {
+      this.spinnerService.hide();
+      if (res && res.status && res.status.code === Constants.STATUS.SUCCESS) {
+        // xu ly menu theo role
+        localStorage.setItem(Constants.MENU, JSON.stringify(this.menu));
+        localStorage.setItem(Constants.TOKEN, res?.data?.accessToken);
+        this.router.navigate(['/']);
+        // this.router.navigate(['report-transaction/revenue']);
+        this.showSuccess();
+      }
+    }, error => {
+      this.spinnerService.hide();
+    });
   }
 
   showSuccess() {
