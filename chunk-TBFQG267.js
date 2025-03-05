@@ -1,0 +1,1 @@
+import{a as t}from"./chunk-2IDIXN65.js";import"./chunk-4L4RMVSS.js";var n=[{path:"",loadComponent:()=>import("./chunk-OIDLQBMS.js").then(o=>o.ProcessDeviceComponent),data:{title:t`Vận hành thiết bị`}}];export{n as routes};

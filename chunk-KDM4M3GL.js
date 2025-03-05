@@ -1,1 +1,0 @@
-var t=(()=>{let E=class E{};E.TOKEN="token",E.MENU="MENU",E.STATUS={SUCCESS:"00"},E.ITEM_STATUS={ACTIVE:"ACTIVE"},E.ITEM_TYPE={SINGLE:{code:"SINGLE",name:"Slot \u0111\u01A1n"},DOUBLE:{code:"DOUBLE",name:"Slot \u0111\xF4i"}};let i=E;return i})();export{t as a};
