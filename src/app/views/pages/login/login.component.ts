@@ -49,12 +49,17 @@ export class LoginComponent implements OnInit {
       icon: 'fa fa-desktop',
       children: [
         {
-          name: 'Vận hành thiết bị',
+          name: 'Quản lý thiết bị',
           url: 'operate/device',
           icon: 'nav-icon-bullet'
         },
         {
-          name: 'Cập nhật hàng hóa',
+          name: 'Vận hành thiết bị',
+          url: 'operate/process-device',
+          icon: 'nav-icon-bullet'
+        },
+        {
+          name: 'Quản lý hàng hóa',
           url: 'operate/product',
           icon: 'nav-icon-bullet'
         }
@@ -63,7 +68,7 @@ export class LoginComponent implements OnInit {
     {
       name: 'Chăm sóc khách hàng',
       url: '/customer-care',
-      icon: 'fa fa-area-chart',
+      icon: 'fa fa-phone',
       children: [
         {
           name: 'Tra cứu lịch sử mua hàng',
@@ -104,7 +109,52 @@ export class LoginComponent implements OnInit {
           icon: 'nav-icon-bullet'
         },
       ]
-    },]
+    },
+    {
+      name: 'Quản lý campaign giá',
+      url: '/price-campaign',
+      icon: 'fa fa-money',
+      children: [
+        {
+          name: 'Xem thông tin campaign',
+          url: 'price-campaign/management',
+          icon: 'nav-icon-bullet'
+        },
+        {
+          name: 'Thêm mới campaign',
+          url: 'price-campaign/create',
+          icon: 'nav-icon-bullet'
+        },
+        {
+          name: 'Chỉnh sửa campaign',
+          url: 'price-campaign/update',
+          icon: 'nav-icon-bullet'
+        },
+      ]
+    },
+    {
+      name: 'Quản lý quảng cáo',
+      url: '/ads-setup',
+      icon: 'fa fa-newspaper-o',
+      children: [
+        {
+          name: 'Xem thông tin quảng cáo',
+          url: 'ads-setup/management',
+          icon: 'nav-icon-bullet'
+        },
+        {
+          name: 'Thêm mới quảng cáo',
+          url: 'ads-setup/create',
+          icon: 'nav-icon-bullet'
+        },
+        {
+          name: 'Chỉnh sửa quảng cáo',
+          url: 'ads-setup/update',
+          icon: 'nav-icon-bullet'
+        },
+      ]
+    }
+  ]
 
 
   constructor(private formBuilder: FormBuilder,
@@ -153,6 +203,7 @@ export class LoginComponent implements OnInit {
     this.authService.login(this.loginForm.value).subscribe(res => {
       this.spinnerService.hide();
       if (res && res.status && res.status.code === Constants.STATUS.SUCCESS) {
+        console.log('menu: ', this.menu)
         // xu ly menu theo role
         localStorage.setItem(Constants.MENU, JSON.stringify(this.menu));
         localStorage.setItem(Constants.TOKEN, res?.data?.accessToken);

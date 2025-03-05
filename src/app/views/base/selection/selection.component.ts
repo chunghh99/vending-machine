@@ -1,4 +1,4 @@
-import {Component, ElementRef, Input, OnInit, Renderer2} from '@angular/core';
+import {Component, ElementRef, EventEmitter, Input, OnInit, Output, Renderer2} from '@angular/core';
 import {NgSelectModule} from "@ng-select/ng-select";
 import {ControlValueAccessor, FormsModule, NG_VALUE_ACCESSOR} from "@angular/forms";
 import {NgIf} from "@angular/common";
@@ -31,6 +31,7 @@ export class SelectionComponent implements OnInit, ControlValueAccessor {
   @Input() readonly: boolean = false;
   @Input() clearable: any;
   @Input() invalidSelection: boolean = false;
+  @Output() onChangeValue = new EventEmitter();
 
 
   people: any[] = [
@@ -84,8 +85,9 @@ export class SelectionComponent implements OnInit, ControlValueAccessor {
         this.selectedItems = [];
       }
     } else {
-      this.selectedItems = 'selected ' + keys;
+      this.selectedItems = keys;
     }
+    console.log('this.selectedItems write: ', this.selectedItems)
   }
 
   onChange: any = () => {
@@ -109,6 +111,7 @@ export class SelectionComponent implements OnInit, ControlValueAccessor {
     if (!this.multiple) {
       this.onChange($event[this.bindValue]);
     }
+    this.onChangeValue.emit(this.selectedItems);
   }
 
   onClear($event: any) {

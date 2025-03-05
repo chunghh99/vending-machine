@@ -47,7 +47,7 @@ export class SaveAdvertisementComponent implements OnInit {
       location: [''],
       deviceName: [''],
       locationDisplay: [''],
-      block: [''],
+      block: ['male'],
       imageName: [''],
       image: [''],
       displayOrder: ['']

@@ -29,6 +29,10 @@ export const routes: Routes = [
         path: 'operate/device',
         loadChildren: () => import('./views/vending-machine/operate/device-management/routes').then((m) => m.routes),
         canActivate: [ActivateRouter]
+      }, {
+        path: 'operate/process-device',
+        loadChildren: () => import('./views/vending-machine/operate/device-management/process-device/routes').then((m) => m.routes),
+        canActivate: [ActivateRouter]
       },
       {
         path: 'operate/product',
@@ -63,6 +67,31 @@ export const routes: Routes = [
       {
         path: 'admin/unLock-account',
         loadChildren: () => import('./views/theme/routes').then((m) => m.routes),
+        canActivate: [ActivateRouter]
+      },
+
+
+      // campaign
+      {
+        path: 'price-campaign/management',
+        loadChildren: () => import('./views/vending-machine/admin/price-campain-management/routes').then((m) => m.routes),
+        canActivate: [ActivateRouter]
+      },
+      {
+        path: 'price-campaign/create',
+        loadChildren: () => import('./views/vending-machine/admin/price-campain-management/save-price-campaign/routes').then((m) => m.routes),
+        canActivate: [ActivateRouter]
+      },
+      {
+        path: 'price-campaign/update',
+        loadChildren: () => import('./views/vending-machine/admin/price-campain-management/update-price-campaign/routes').then((m) => m.routes),
+        canActivate: [ActivateRouter]
+      },
+
+      ////  quang cao
+      {
+        path: 'ads-setup/management',
+        loadChildren: () => import('./views/vending-machine/admin/advertisement-management/routes').then((m) => m.routes),
         canActivate: [ActivateRouter]
       },
     ]

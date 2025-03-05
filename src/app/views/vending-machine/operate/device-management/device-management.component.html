@@ -7,7 +7,7 @@
     </div>
 
     <div class="col-md-4 col-sm-8 col-xs-12 mt-3">
-      <app-selection formControlName="deviceName" [searchable]="true" [multiple]="true"></app-selection>
+      <app-selection formControlName="deviceName" [searchable]="true" [multiple]="true" [items]="itemsDefault"></app-selection>
     </div>
 
     <div class="col-md-2 col-sm-4 col-xs-12 mt-3">
@@ -15,10 +15,9 @@
     </div>
 
     <div class="col-md-4 col-sm-8 col-xs-12 mt-3">
-      <app-selection formControlName="place" [searchable]="true" [multiple]="true"></app-selection>
+      <app-selection formControlName="place" [searchable]="true" [multiple]="true" [items]="locationList" [bindValue]="'value'"></app-selection>
     </div>
   </div>
-
 
 
   <div class="row mt-3">
@@ -39,40 +38,33 @@
         <th>ID máy</th>
         <th>Tên máy</th>
         <th>Địa điểm</th>
-        <th>Mã slot đơn</th>
-        <th>Số lượng slot</th>
-        <th>Số lượng hàng tối đa</th>
-        <th>Mã slot đôi</th>
-        <th>Số lượng slot</th>
         <th>Số lượng hàng tối đa</th>
         <th>PTTT</th>
+        <th>thao tác</th>
       </tr>
       </thead>
       <tbody>
-      <tr *ngFor="let item of itemList">
-        <td [width]="'5%'" class="text-center">{{ item.id }}</td>
-        <td [width]="'5%'" class="text-center">{{ item.id }}</td>
-        <td [width]="'30%'" class="min-width-cl">{{ item.lastName }}</td>
-        <td [width]="'30%'" class="min-width-cl">{{ item.email }}</td>
-        <td [width]="'30%'" class="min-width-cl">{{ item.email }}</td>
-        <td [width]="'30%'" class="min-width-cl">{{ item.email }}</td>
-        <td [width]="'30%'" class="min-width-cl">{{ item.email }}</td>
-        <td [width]="'30%'" class="min-width-cl">{{ item.email }}</td>
-        <td [width]="'30%'" class="min-width-cl">{{ item.email }}</td>
-        <td [width]="'30%'" class="min-width-cl">{{ item.email }}</td>
-        <td [width]="'30%'" class="min-width-cl">{{ item.email }}</td>
-<!--        <td [width]="'5%'" class="text-center">-->
-<!--          <a class="cursor-pointer hover-color-red font-size-18 color-black" [cTooltip]="'Chi tiết'" (click)="onDetail(item)">-->
-<!--            <i class="fa fa-pencil-square-o"></i>-->
-<!--          </a>-->
-<!--          <a class="cursor-pointer hover-color-red font-size-18 ml-5 color-black" [cTooltip]="'Xóa'">-->
-<!--            <i class="fa fa-trash-o"></i>-->
-<!--          </a>-->
-<!--        </td>-->
+      <tr *ngFor="let item of itemstable; let index = index">
+        <td [width]="'5%'" class="text-center">{{ index + 1 }}</td>
+        <td [width]="'5%'" class="text-center">{{ item?.id }}</td>
+        <td [width]="'30%'" class="min-width-cl">{{ item?.name }}</td>
+        <td [width]="'30%'" class="min-width-cl">{{ item?.locationText }}</td>
+        <td [width]="'30%'" class="min-width-cl">{{ item?.slotAmount}}</td>
+        <td [width]="'30%'" class="min-width-cl">{{ joinPaymentMethod(item) }}</td>
+                <td [width]="'5%'" class="text-center">
+                  <a class="cursor-pointer hover-color-red font-size-18 color-black" [cTooltip]="'Cập nhật'" (click)="onDetail(item)">
+                    <i class="fa fa-pencil-square-o"></i>
+                  </a>
+                  <a class="cursor-pointer hover-color-red font-size-18 ml-5 color-black" [cTooltip]="'Xóa'">
+                    <i class="fa fa-trash-o"></i>
+                  </a>
+                </td>
+
       </tr>
       </tbody>
     </table>
   </div>
-  <app-pagination [currentPage]="1" [totalItems]="1000"></app-pagination>
+  <app-pagination [currentPage]="currentPage" [totalItems]="totalItem" (pageChange)="pageChange($event)"
+                  (itemPerPageChange)="itemPerPageChange($event)"></app-pagination>
 
 </div>
