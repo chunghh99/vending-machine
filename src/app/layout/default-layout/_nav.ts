@@ -54,6 +54,11 @@ export const navItems: INavData[] = [
         icon: 'nav-icon-bullet'
       },
       {
+        name: 'Quản lý campaign giá',
+        url: 'admin/price-campaign',
+        icon: 'nav-icon-bullet'
+      },
+      {
         name: 'Khai báo quảng cáo',
         url: 'admin/advertisement-management',
         icon: 'nav-icon-bullet'

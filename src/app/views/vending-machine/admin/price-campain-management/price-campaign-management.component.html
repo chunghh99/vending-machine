@@ -1,0 +1,67 @@
+<div [formGroup]="form" class="align-items-center search-price-campaign">
+  <h4 class="">Quản lý campaign giá</h4>
+  <div class="row mt-3">
+    <div class="col-md-2 col-sm-4 col-xs-12">
+      <label class="form-label col-form-label"> Tên campaign</label>
+    </div>
+
+    <div class="col-md-4 col-sm-8 col-xs-12">
+      <app-selection formControlName="name" [searchable]="true"></app-selection>
+    </div>
+
+    <div class="col-md-2 col-sm-4 col-xs-12">
+      <label class="form-label col-form-label"> Thời gian</label>
+    </div>
+
+    <div class="col-md-4 col-sm-8 col-xs-12">
+      <div class="input-date-range">
+        <input class="form-control custom-date-input" formControlName="fromDate" type="date"
+               [class.is-invalid]="dateRangeInvalid && form.get('fromDate')?.value && form.get('toDate')?.value"
+               style="max-width: 45%">
+        <input class="form-control custom-date-input" formControlName="toDate" type="date"
+               [class.is-invalid]="dateRangeInvalid && form.get('fromDate')?.value && form.get('toDate')?.value"
+               style="max-width: 45%">
+      </div>
+      <div *ngIf="dateRangeInvalid && form.get('fromDate')?.value && form.get('toDate')?.value"
+           class="text-danger mt-1">
+        "Từ ngày" không được lớn hơn "Đến ngày"!
+      </div>
+    </div>
+  </div>
+
+  <div class="row mt-3">
+    <div class="col-12 text-center">
+      <button type="button" class="btn btn-primary" (click)="onSearch()"><i class="fa fa-search"></i> Tìm kiếm</button>
+    </div>
+  </div>
+
+  <h5>Danh sách quảng cáo</h5>
+  <div class="table-responsive radius-table" style="width: 100%!important;">
+    <table class="table table-striped table-hover">
+      <thead>
+      <tr>
+        <th>#</th>
+        <th>ID</th>
+        <th>Tên campaign</th>
+        <th>Thời gian</th>
+        <th>Trạng thái</th>
+        <th>Khu vực</th>
+        <th>Tên máy</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let item of itemstable; let i=index">
+        <td [width]="'5%'" class="text-center">{{ i + 1 }}</td>
+        <td [width]="'5%'" class="text-center">{{ item.id }}</td>
+        <td [width]="'30%'" class="min-width-cl">{{ item.name }}</td>
+        <td [width]="'30%'" class="min-width-cl"></td>
+        <td [width]="'30%'" class="min-width-cl">{{ item.status }}</td>
+        <td [width]="'30%'" class="min-width-cl"></td>
+        <td [width]="'30%'" class="min-width-cl"></td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+  <app-pagination [currentPage]="currentPage" [totalItems]="totalItem" (pageChange)="pageChange($event)"
+                  (itemPerPageChange)="itemPerPageChange($event)"></app-pagination>
+</div>

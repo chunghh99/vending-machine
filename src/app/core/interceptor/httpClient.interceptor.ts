@@ -11,14 +11,15 @@ import {Observable, throwError} from "rxjs";
 import {ToastrService} from "ngx-toastr";
 import {catchError, map} from "rxjs/operators";
 import {Router} from "@angular/router";
+import {SpinnerService} from "../../services/spinner.service";
 
 @Injectable()
 export class HttpClientInterceptor implements HttpInterceptor {
 
   constructor(private toastr: ToastrService,
               private router: Router,
-              // private spinnerService: SpinnerService
-              ) {
+              private spinnerService: SpinnerService
+  ) {
   }
 
   arrAuth = [401, 403];
@@ -27,7 +28,7 @@ export class HttpClientInterceptor implements HttpInterceptor {
     console.log('intercep api')
     // Kiểm tra kết nối internet
     if (!window.navigator.onLine) {
-      this.toastr.error('Không kết nối được đến server. Vui lòng thử lại', 'Thông báo');
+      this.toastr.error('Không kết nối được đến server. Vui lòng thử lại sau', 'Thông báo');
       // this.spinnerService.hide();
       return throwError(new HttpErrorResponse({error: 'Internet is required.'}));
     }
@@ -55,7 +56,8 @@ export class HttpClientInterceptor implements HttpInterceptor {
           if (this.arrAuth.includes(error.status)) {
             this.handleLogin();
           }
-          this.toastr.error(`Có lỗi xảy ra, xin vui lòng thử lại!`, 'Thông báo');
+          this.spinnerService.hide();
+          this.toastr.error(`Có lỗi xảy ra, xin vui lòng thử lại sau!`, 'Thông báo');
           // this.spinnerService.hide();
           return throwError(error); // Để lỗi tiếp tục chuỗi xử lý
         })
@@ -94,7 +96,8 @@ export class HttpClientInterceptor implements HttpInterceptor {
           if (this.arrAuth.includes(error.status)) {
             this.handleLogin();
           } else {
-            this.toastr.error(`Có lỗi xảy ra, xin vui lòng thử lại!`, 'Thông báo');
+            this.spinnerService.hide();
+            this.toastr.error(`Có lỗi xảy ra, xin vui lòng thử lại sau!`, 'Thông báo');
           }
           // this.spinnerService.hide();
           return throwError(error); // Để lỗi tiếp tục chuỗi xử lý
@@ -110,6 +113,7 @@ export class HttpClientInterceptor implements HttpInterceptor {
 
   handleLogin(): any {
     localStorage.clear();
+    this.spinnerService.hide();
     this.router.navigate(['/login']);
   }
 }
